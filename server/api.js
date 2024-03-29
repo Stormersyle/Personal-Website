@@ -5,11 +5,18 @@ const Project = require("./models/project.js");
 const router = express.Router(); //mounted on /api
 
 router.get("/blog", (req, res) => {
+  const remove_body = (post) => {
+    return { title: post.title, timestamp: post.timestamp };
+  };
   BlogPost.find()
     .sort({ timestamp: -1 })
     .then((posts) => {
-      res.send(posts);
+      res.send(posts.map(remove_body));
     });
+});
+
+router.get("/blogpost", (req, res) => {
+  BlogPost.findOne({ title: req.query.title }).then((post) => res.send(post));
 });
 
 router.get("/project", (req, res) => {
@@ -48,3 +55,5 @@ router.post("/delete_project", (req, res) => {
   //deletes all projects that match name
   Project.deleteMany({ name: req.body.name }).then(() => res.send({}));
 });
+
+module.exports = router;
