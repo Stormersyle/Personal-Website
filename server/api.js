@@ -16,7 +16,7 @@ router.get("/blog", (req, res) => {
 });
 
 router.get("/blogpost", (req, res) => {
-  BlogPost.findOne({ title: req.query.title }).then((post) => res.send(post));
+  BlogPost.findOne({ timestamp: req.query.timestamp }).then((post) => res.send(post));
 });
 
 router.get("/project", (req, res) => {

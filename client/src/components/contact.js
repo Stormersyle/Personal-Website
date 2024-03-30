@@ -6,7 +6,10 @@ const Contact = () => {
     <div>
       <h1>Contact</h1>
       <p>
-        You can reach me through email at: <a href="azyuan@mit.edu">azyuan@mit.edu</a>
+        You can reach me through email at:{" "}
+        <a href="azyuan@mit.edu" onclick="_blank">
+          azyuan@mit.edu
+        </a>
       </p>
     </div>
   );
