@@ -12,14 +12,9 @@ const PostBlog = () => {
 
   const submit = () => {
     if (!(titleRef && passwordRef)) return;
-    if (!titleRef.current.value) {
-      alert("There needs to be a title!");
-      return;
-    }
-    const text = Editor.getJSON();
     post("/api/blog", {
       title: titleRef.current.value,
-      body: text,
+      body: Editor.getJSON(),
       password: passwordRef.current.value,
     }).then(() => navigate("/"));
   };
@@ -113,7 +108,7 @@ const PostProject = () => {
   );
 };
 
-const DeleteBlogPost = () => {
+const DeleteBlog = () => {
   const titleRef = useRef(null);
   const passwordRef = useRef(null);
   const navigate = useNavigate();
@@ -166,3 +161,24 @@ const DeleteProject = () => {
     </div>
   );
 };
+
+const Admin = () => {
+  const navigate = useNavigate();
+  return (
+    <div>
+      <h1>Admin Dashboard</h1>
+      <div>
+        <h2>New Blog/Project</h2>
+        <button onClick={() => navigate("/newblog")}>New Blog Post</button>
+        <button onClick={() => navigate("/newproject")}>New Project</button>
+      </div>
+      <div>
+        <h2>Delete Blog/Project</h2>
+        <button onClick={() => navigate("/deleteblog")}>Delete Blog Post</button>
+        <button onClick={() => navigate("/deleteproject")}>Delete Project</button>
+      </div>
+    </div>
+  );
+};
+
+export { PostBlog, PostProject, DeleteBlog, DeleteProject, Admin };
