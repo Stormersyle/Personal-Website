@@ -1,8 +1,17 @@
 const express = require("express");
 const BlogPost = require("./models/blogpost.js");
 const Project = require("./models/project.js");
+const BackupBlog = require("./models/blogpost_backup.js");
+const BackupProject = require("./models/project_backup.js");
 
 const router = express.Router(); //mounted on /api
+
+//when posting, ensure password is correct
+router.post("*", (req, res, next) => {
+  if (req.body.password === password) next();
+  else res.send({ error: "failed to post" });
+  return;
+});
 
 router.get("/blog", (req, res) => {
   const remove_body = (post) => {
@@ -30,6 +39,8 @@ router.get("/project", (req, res) => {
 router.post("/blog", (req, res) => {
   const newPost = new BlogPost({ title: req.body.title, body: req.body.body }); //blog post should be just a string; formatting should be done using symbols
   newPost.save().then(res.send({ title: req.body.title, body: req.body.body }));
+  const newBackUp = new BackupBlog({ title: req.body.title, body: req.body.body });
+  newBackUp.save();
 });
 
 router.post("/project", (req, res) => {
@@ -43,7 +54,9 @@ router.post("/project", (req, res) => {
     priority: req.body.priority,
   };
   const newProject = new Project(project_fields);
-  newProject.save().then(res.send(project_fields));
+  newProject.save().then(res.send({ project_fields }));
+  const newBackUp = new BackupProject(project_fields);
+  newBackUp.save();
 });
 
 router.post("/delete_blog", (req, res) => {

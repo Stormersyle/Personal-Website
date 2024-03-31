@@ -27,13 +27,6 @@ mongoose
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-//when posting, ensure password is correct
-app.post("*", (req, res, next) => {
-  if (req.body.password === password) next();
-  else res.send({ error: "failed to post" });
-  return;
-});
-
 //mount API router on "/api" path
 const api = require("./api.js");
 app.use("/api", api);
