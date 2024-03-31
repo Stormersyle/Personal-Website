@@ -1,11 +1,10 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
 import { get } from "../utilities.js";
 import "../stylesheets/projects.css";
 
 import Waiting from "./waiting.js";
-import formatDate from "./date.js";
+import { formatDate } from "./utilities.js";
 
 //project:
 //  name: String,

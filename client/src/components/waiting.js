@@ -1,4 +1,5 @@
 import React from "react";
+import "../stylesheets/waiting.css";
 
 const Waiting = () => {
   return (

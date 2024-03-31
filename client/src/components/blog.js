@@ -6,7 +6,7 @@ import "../stylesheets/blog.css";
 
 import Waiting from "./waiting.js";
 import { Display } from "./tiptap.js";
-import formatDate from "./date.js";
+import { formatDate } from "./utilities.js";
 
 const display_link = (title, timestamp) => {
   return (

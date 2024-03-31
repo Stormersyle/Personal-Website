@@ -1,14 +1,13 @@
 import React, { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "./stylesheets/index.css";
+import "./index.css";
 
 import Home from "./components/home.js";
 import Academics from "./components/academics.js";
-import ProjectsPage from "./components/projects_page.js";
+import ProjectsPage from "./components/projects.js";
 import { Blog, BlogPost } from "./components/blog.js";
 import Contact from "./components/contact.js";
-import Delete from "./components/delete.js";
 import NavBar from "./components/navbar.js";
 import Footer from "./components/footer.js";
 import { PostBlog, PostProject, DeleteBlog, DeleteProject, Admin } from "./components/admin.js";
