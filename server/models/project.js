@@ -9,3 +9,4 @@ const Project = new mongoose.Schema({
   priority: Number, //higher priority comes first
   timestamp: { type: Date, default: Date.now },
 });
+module.exports = mongoose.model("projects", Project);

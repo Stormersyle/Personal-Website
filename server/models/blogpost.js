@@ -4,3 +4,4 @@ const BlogPost = new mongoose.Schema({
   body: String,
   timestamp: { type: Date, default: Date.now },
 });
+module.exports = mongoose.model("blogposts", BlogPost);
