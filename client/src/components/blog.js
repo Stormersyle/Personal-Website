@@ -6,21 +6,11 @@ import "../stylesheets/blog.css";
 
 import Waiting from "./waiting.js";
 import { Display } from "./tiptap.js";
-
-const formatDate = (timestamp) => {
-  //given unix timestamp, returns corresponding date as a string
-  const date = new Date(timestamp * 1000);
-  const formatter = new Intl.DateTimeFormat("en-US", {
-    year: "numeric",
-    month: "long", // 'long' for full month name
-    day: "2-digit",
-  });
-  return formatter.format(date);
-};
+import formatDate from "./date.js";
 
 const display_link = (title, timestamp) => {
   return (
-    <li>
+    <li key={timestamp}>
       {formatDate(timestamp)}: <Link to={`/blog/post/${timestamp}`}>{title}</Link>;
     </li>
   );
