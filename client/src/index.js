@@ -8,10 +8,10 @@ import Academics from "./components/academics.js";
 import ProjectsPage from "./components/projects_page.js";
 import { Blog, BlogPost } from "./components/blog.js";
 import Contact from "./components/contact.js";
-import { NewBlog, NewProject } from "./components/new_post.js";
 import Delete from "./components/delete.js";
 import NavBar from "./components/navbar.js";
 import Footer from "./components/footer.js";
+import { PostBlog, PostProject, DeleteBlog, DeleteProject, Admin } from "./components/admin.js";
 
 const router = createBrowserRouter([
   { path: "/", element: <Home /> },
@@ -19,10 +19,13 @@ const router = createBrowserRouter([
   { path: "/projects", element: <ProjectsPage /> },
   { path: "/blog", element: <Blog /> },
   { path: "/blog/post/:timestamp", element: <BlogPost /> },
-  { path: "/contact", element: <Contact /> }, //next three are private pages
-  { path: "/newblog", element: <NewBlog /> },
-  { path: "/newproject", element: <NewProject /> },
-  { path: "/delete", element: <Delete /> },
+  { path: "/contact", element: <Contact /> }, //next five are private pages
+
+  { path: "/admin", element: <Admin /> },
+  { path: "/newblog", element: <PostBlog /> },
+  { path: "/newproject", element: <PostProject /> },
+  { path: "/deleteblog", element: <DeleteBlog /> },
+  { path: "/deleteproject", element: <DeleteProject /> },
 ]);
 
 const root = createRoot(document.getElementById("root"));

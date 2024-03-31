@@ -28,7 +28,7 @@ router.get("/blogpost", (req, res) => {
   BlogPost.findOne({ timestamp: req.query.timestamp }).then((post) => res.send(post));
 });
 
-router.get("/project", (req, res) => {
+router.get("/projects", (req, res) => {
   Project.find()
     .sort({ starred: -1, priority: 1, timestamp: -1 })
     .then((projects) => {
