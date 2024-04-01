@@ -18,7 +18,7 @@
 
 const path = require("path");
 const entryFile = path.resolve(__dirname, "client", "src", "index.js");
-const outputDir = path.resolve(__dirname, "client", "public"); //public directory, contains all static files
+const outputDir = path.resolve(__dirname, "client", "dist"); //dist/public directory, contains all static files
 
 const webpack = require("webpack");
 

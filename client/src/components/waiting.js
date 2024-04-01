@@ -9,4 +9,4 @@ const Waiting = () => {
   );
 };
 
-return Waiting;
+export default Waiting;

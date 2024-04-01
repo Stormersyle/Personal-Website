@@ -8,9 +8,6 @@ require("dotenv").config();
 const app = express();
 const server = http.createServer(app);
 
-//password used to post blog and projects
-const password = process.env.PASSWORD;
-
 //connect to mongoDB
 const mongoConnectionURI = process.env.MONGO_SRV;
 const databaseName = "Portflio";
@@ -31,10 +28,13 @@ app.use(bodyParser.json());
 const api = require("./api.js");
 app.use("/api", api);
 
-//serve static files when a GET request is made to client/public
-//note: because webpack bundles all the front-end JS/CSS files into bundle.js (which is in client/public), all static files served to the client are in client/public
-const client_dir = path.resolve(__dirname, "..", "client", "public");
+//serve static files when a GET request is made to client/dist
+//note: because webpack bundles all the front-end JS/CSS files into bundle.js (which is in client/dist), all static files served to the client are in client/dist
+const client_dir = path.resolve(__dirname, "..", "client", "dist");
 app.use(express.static(client_dir));
+//now: express treats client_dir as the root for static files!
+//so when the site requests a static file from filepath, server interprets that as client_dir/filepath
+//so for assets: do /assets/name rather than /client/dist/assets/name.
 
 // for get requests to any other route, just send index.html
 app.get("*", (req, res) => {
@@ -57,8 +57,8 @@ app.use((err, req, res, next) => {
   });
 });
 
-//listen on port 300
-const port = 300;
+//listen on port 3000
+const port = 3000;
 server.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });

@@ -5,6 +5,7 @@ const BackupBlog = require("./models/blogpost_backup.js");
 const BackupProject = require("./models/project_backup.js");
 
 const router = express.Router(); //mounted on /api
+const password = process.env.PASSWORD; //password used to post blog and projects
 
 //when posting, ensure password is correct
 router.post("*", (req, res, next) => {

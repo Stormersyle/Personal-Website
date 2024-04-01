@@ -1,6 +1,6 @@
 //shamelessly copied from TipTap example
 
-import "./tiptap.css";
+import "../stylesheets/tiptap.css";
 
 import { Color } from "@tiptap/extension-color";
 import ListItem from "@tiptap/extension-list-item";
@@ -150,4 +150,4 @@ const Display = ({ content }) => {
   );
 };
 
-export default { Editor, Display };
+export { Editor, Display };

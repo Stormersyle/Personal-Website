@@ -4,7 +4,7 @@ import { get } from "../utilities.js";
 import "../stylesheets/projects.css";
 
 import Waiting from "./waiting.js";
-import { formatDate } from "./utilities.js";
+import { formatDate } from "../utilities.js";
 
 //project:
 //  name: String,
@@ -31,7 +31,7 @@ const display_project = ({
           {name}
         </a>
         <a href={github_link} target="_blank">
-          <img src="../../assets/inverted_github.png" />
+          <img src="/assets/inverted_github.png" />
         </a>
         <br />
         <p>{formatDate(timestamp)}</p>

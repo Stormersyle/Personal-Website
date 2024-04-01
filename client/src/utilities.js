@@ -67,7 +67,7 @@ export function post(endpoint, params = {}) {
 //Note: we should only send objects/arrays back using res.send() in our middleware!
 //Utility functions try to parse it to JSON, so we shouldn't send plain numbers/tryings.
 
-const formatDate = (timestamp) => {
+export function formatDate(timestamp) {
   //given unix timestamp, returns corresponding date as a string
   const date = new Date(Number(timestamp) * 1000);
   const formatter = new Intl.DateTimeFormat("en-US", {
@@ -76,6 +76,4 @@ const formatDate = (timestamp) => {
     day: "2-digit",
   });
   return formatter.format(date);
-};
-
-export default formatDate;
+}
