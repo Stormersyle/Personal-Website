@@ -10,15 +10,6 @@
   --medgrey: #e0e0e0;
   --grey: #f7f7f7;
   --white: #fff;
-
-  --xs: 4px;
-  --s: 8px;
-  --sm: 14px;
-  --m: 16px;
-  --m2: 18px;
-  --l: 24px;
-  --ll: 30px;
-  --huge: 50px;
 }
 
 .u-xs {
@@ -162,46 +153,4 @@ form {
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-}
-
-.default-button {
-  display: block;
-  text-decoration: none;
-  color: var(--white);
-  background-color: red;
-  opacity: 0.8;
-  text-align: center;
-  border: 2px solid black;
-  border-radius: 10%;
-}
-/* left out: width, height, margin, padding */
-
-.default-button:hover {
-  background-color: blue;
-  opacity: 1;
-}
-
-.order-container {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  /* border: 1px solid black; */
-}
-
-ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  /* border: 1px solid black; */
-}
-
-li {
-  border: 1px solid black;
-  text-align: center;
-  margin: 1vmin;
-  padding: 1vmin;
 }

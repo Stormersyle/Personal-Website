@@ -3,14 +3,18 @@ import "../stylesheets/contact.css";
 
 const Contact = () => {
   return (
-    <div>
-      <h1>Contact</h1>
-      <p>
-        You can reach me through email at:{" "}
-        <a href="azyuan@mit.edu" onclick="_blank">
-          azyuan@mit.edu
-        </a>
-      </p>
+    <div className="page-container">
+      <div className="contact">
+        <p className="u-xl">Contact</p>
+        <br />
+        <p>
+          You can reach me through email at:{" "}
+          <a href="azyuan@mit.edu" onclick="_blank">
+            azyuan@mit.edu
+          </a>
+          <br />
+        </p>
+      </div>
     </div>
   );
 };

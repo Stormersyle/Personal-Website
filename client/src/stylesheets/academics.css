@@ -1,0 +1,12 @@
+.coursework {
+  width: 100%;
+}
+
+.coursework li {
+  margin: 1vh;
+}
+
+.notes a {
+  display: inline-block;
+  margin: 1vh;
+}
