@@ -1,5 +1,4 @@
 import React from "react";
-import "../stylesheets/academics.css";
 
 const Academics = () => {
   return (
@@ -24,18 +23,21 @@ const Academics = () => {
           <li>18.600: Probability & Random Variables (A+)</li>
           <li>6.1010: Fundamentals of Programming (A)</li>
           <li>6.100B: Intro to Computational Thinking & Data Science (A)</li>
-          <li>7.012: Intro to Biology</li>
-          <li>18.01: Single-Variable Calculus (AP credit)</li>
-          <li>18.02: Multivariable Calculus (ASE'd)</li>
-          <li>18.06: Linear Algebra (ASE'd)</li>
-          <li>8.01: Physics I (AP credit)</li>
-          <li>6.100A: Intro to Python (ASE'd)</li>
+          <li>7.012: Introduction to Biology</li>
+        </ul>
+        <br />
+        <p className="u-m2">Prior Credit:</p>
+        <ul>
+          <li>18.01: Single-Variable Calculus</li>
+          <li>18.02: Multivariable Calculus</li>
+          <li>18.06: Linear Algebra</li>
+          <li>8.01: Physics I</li>
+          <li>6.100A: Intro to Python</li>
         </ul>
         <br />
       </div>
       <div className="notes">
-        <p className="u-l">Notes</p>
-        <br />
+        <p className="u-l u-block notes-heading">Notes</p>
         <p>
           Here is a collection of some notes/handouts I have written on various topics. I believe
           that for most areas, there are existing resources that present the material relatively

@@ -32,7 +32,7 @@
 
 a {
   text-decoration: none;
-  color: #276ea4;
+  color: rgb(7, 217, 179);
 }
 
 p {
@@ -54,4 +54,22 @@ p {
 /* contact page */
 .contact {
   height: 70vh;
+}
+
+/* academics */
+.coursework {
+  width: 100%;
+}
+
+.coursework li {
+  margin: 0.6vh;
+}
+
+.notes-heading {
+  margin: 1vh 0;
+}
+
+.notes a {
+  display: inline-block;
+  margin: 1vh;
 }
