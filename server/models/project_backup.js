@@ -7,6 +7,6 @@ const Project = new mongoose.Schema({
   github_link: String,
   starred: Boolean, //true>false
   priority: Number, //higher priority comes first
-  timestamp: { type: Date, default: Date.now },
+  timestamp: { type: Number, default: Date.now },
 });
 module.exports = mongoose.model("project_backups", Project);
