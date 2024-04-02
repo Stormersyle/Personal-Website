@@ -25,8 +25,9 @@ const Blog = () => {
   }, []);
   if (postList) {
     return (
-      <div>
-        <h1>Blog</h1>
+      <div className="page-container">
+        <p className="u-xl">Blog</p>
+        <br />
         <ul>{postList.map(display_link)}</ul>
       </div>
     );
@@ -39,7 +40,7 @@ const Blog = () => {
 const display_post = (title, date, body) => {
   //note: body is in JSON
   return (
-    <div>
+    <div className="page-container">
       <h2>{title}</h2>
       <p>{date}</p>
       <br />

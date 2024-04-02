@@ -52,8 +52,8 @@ const ProjectsPage = () => {
   }, []);
   if (projList) {
     return (
-      <div>
-        <h1>Projects</h1>
+      <div className="page-container">
+        <p className="u-xl">Projects</p>
         {projList.map(display_project)}
       </div>
     );

@@ -14,7 +14,6 @@ const Home = () => {
           <p className=" u-m2">
             I'm a student at MIT studying math and computer science. Welcome to my personal website!
           </p>
-          <br />
           <div className="headshot-container">
             <img src="/assets/headshot.png" className="headshot u-block" />
           </div>

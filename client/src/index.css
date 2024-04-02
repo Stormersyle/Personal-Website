@@ -14,10 +14,13 @@
 }
 
 /* contains just the page (not the navbar) */
-/* within the page container: 15vw margins on left/right; 5vh margins on top/bottom */
+/* within the page container: 15% margins on left/right; 5vh margins on top/bottom */
+/* note: we need to use % for left/right margins, because % takes into account the vertical scrollbar while vw ignores it! so if we do 100vw, the page container will be too big and cause a horizontal scrollbar */
 .page-container {
   padding: 5vh 15%;
   width: 70%;
+  min-height: 70vh;
+  /* min-height: 70vh makes the page-container automatically extend to the bottom */
   background-color: black;
   color: white;
   display: flex;
@@ -33,6 +36,10 @@
 a {
   text-decoration: none;
   color: rgb(7, 217, 179);
+}
+
+a:hover {
+  color: rgb(7, 94, 217);
 }
 
 p {
@@ -51,18 +58,13 @@ p {
   color: white;
 }
 
-/* contact page */
-.contact {
-  height: 70vh;
-}
-
 /* academics */
 .coursework {
   width: 100%;
 }
 
 .coursework li {
-  margin: 0.6vh;
+  margin: 0.6vh 0;
 }
 
 .notes-heading {
@@ -71,5 +73,11 @@ p {
 
 .notes a {
   display: inline-block;
-  margin: 1vh;
+  margin: 1vh 0;
+}
+
+/* blog */
+.blogroll li {
+  margin: 1vh 0;
+  list-style: none;
 }

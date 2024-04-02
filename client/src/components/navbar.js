@@ -22,10 +22,14 @@ const Navbar = () => {
         <Link to="/contact" className="nav-link">
           Contact
         </Link>
-        <a href="https://github.com/Stormersyle" target="_blank">
+        <a href="https://github.com/Stormersyle" target="_blank" className="navicon-container">
           <img src="/assets/github.png" className="nav-icon github" />
         </a>
-        <a href="https://www.linkedin.com/in/andrewyuan02/" target="_blank">
+        <a
+          href="https://www.linkedin.com/in/andrewyuan02/"
+          target="_blank"
+          className="navicon-container"
+        >
           <img src="/assets/linkedin.png" className="nav-icon linkedin" />
         </a>
       </div>
