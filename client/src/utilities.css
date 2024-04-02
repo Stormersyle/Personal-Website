@@ -1,0 +1,207 @@
+/* Utility classes (classes for styling one thing)
+ Copied from Catbook React*/
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,600");
+
+:root {
+  --primary: #396dff;
+  --primary--dim: #6987db;
+  --darkgrey: #d4d4d4;
+  --medgrey: #e0e0e0;
+  --grey: #f7f7f7;
+  --white: #fff;
+
+  --xs: 4px;
+  --s: 8px;
+  --sm: 14px;
+  --m: 16px;
+  --m2: 18px;
+  --l: 24px;
+  --ll: 30px;
+  --huge: 50px;
+}
+
+.u-xs {
+  font-size: 4px;
+}
+
+.u-s {
+  font-size: 8px;
+}
+
+.u-sm {
+  font-size: 14px;
+}
+
+.u-m {
+  font-size: 16px;
+}
+
+.u-m2 {
+  font-size: 18px;
+}
+
+.u-l {
+  font-size: 24px;
+}
+
+.u-xl {
+  font-size: 30px;
+}
+
+.u-huge {
+  font-size: 50px;
+}
+
+/* this sets the default font */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 300;
+}
+
+button {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 300;
+}
+
+form {
+  flex-grow: 1;
+}
+
+.u-inline {
+  display: inline;
+}
+
+.u-block {
+  display: block;
+}
+
+.u-inlineBlock {
+  display: inline-block;
+}
+
+.u-flex {
+  display: flex;
+}
+
+.u-flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.u-flex-justifyCenter {
+  justify-content: center;
+}
+
+.u-flex-alignCenter {
+  align-items: center;
+}
+
+.u-bold {
+  font-weight: 600;
+}
+
+.u-textCenter {
+  text-align: center;
+}
+
+.u-relative {
+  position: relative;
+}
+
+.u-pointer {
+  cursor: pointer;
+}
+
+.u-link {
+  color: var(--primary);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.u-text-center {
+  text-align: center;
+}
+
+.u-link:hover {
+  color: var(--primary--dim);
+}
+
+.twoColumn {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  /* most flexible, since we can control positions w/ margins */
+}
+
+.twoColumn_center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.twoColumn_spaced {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.twoColumn_even {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.twoColumn_right {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.default-button {
+  display: block;
+  text-decoration: none;
+  color: var(--white);
+  background-color: red;
+  opacity: 0.8;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 10%;
+}
+/* left out: width, height, margin, padding */
+
+.default-button:hover {
+  background-color: blue;
+  opacity: 1;
+}
+
+.order-container {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  /* border: 1px solid black; */
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  /* border: 1px solid black; */
+}
+
+li {
+  border: 1px solid black;
+  text-align: center;
+  margin: 1vmin;
+  padding: 1vmin;
+}

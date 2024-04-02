@@ -1,10 +1,9 @@
 import React from "react";
-import "../stylesheets/footer.css";
 
 const Footer = () => {
   return (
-    <div>
-      <p>Copyright ​© 2024. </p>
+    <div className="footer">
+      <p>​© 2024 Andrew Yuan. All rights reserved. </p>
     </div>
   );
 };

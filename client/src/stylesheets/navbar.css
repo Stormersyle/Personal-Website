@@ -1,0 +1,38 @@
+.Navbar {
+  height: 10vh;
+  width: 100%;
+  /* border: solid black 2px; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navlink-container {
+  margin: 0 5vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.name-container {
+  font-size: 20px;
+}
+
+.nav-icon {
+  display: inline-block;
+  height: 6vh;
+  width: auto;
+  margin: 0 1vw;
+}
+
+.linkedin {
+  margin: 0;
+}
+
+.nav-link {
+  margin: 0 0.75vw;
+  font-size: 16px;
+  color: black;
+}

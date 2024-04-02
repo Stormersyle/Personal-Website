@@ -22,10 +22,10 @@ const PostBlog = () => {
   return (
     <div>
       <h1>New Blog Post</h1>
-      <label for="post_title">Title:</label>
+      <label htmlFor="post_title">Title:</label>
       <input type="text" id="post_title" ref={titleRef} />
       <Editor />
-      <label for="post_password">Password:</label>
+      <label htmlFor="post_password">Password:</label>
       <input type="password" id="post_password" ref={passwordRef} />
       <button onClick={submit}>Submit</button>
     </div>
@@ -80,28 +80,28 @@ const PostProject = () => {
   return (
     <div>
       <h1>New Project</h1>
-      <label for="name">Name:</label>
+      <label htmlFor="name">Name:</label>
       <input type="text" id="name" ref={nameRef} />
 
-      <label for="description">Description:</label>
+      <label htmlFor="description">Description:</label>
       <input type="text" id="description" ref={descriptionRef} />
 
-      <label for="screenshot">Screenshot Link:</label>
+      <label htmlFor="screenshot">Screenshot Link:</label>
       <input type="text" id="screenshot" ref={screenshotRef} />
 
-      <label for="website">Website Link:</label>
+      <label htmlFor="website">Website Link:</label>
       <input type="text" id="website" ref={websiteRef} />
 
-      <label for="github">Github Link:</label>
+      <label htmlFor="github">Github Link:</label>
       <input type="text" id="github" ref={githubRef} />
 
-      <label for="starred">Starred:</label>
+      <label htmlFor="starred">Starred:</label>
       <input type="checkbox" id="starred" ref={starredRef} />
 
-      <label for="priority">Priority:</label>
+      <label htmlFor="priority">Priority:</label>
       <input type="number" id="priority" ref={priorityRef} />
 
-      <label for="proj_password">Password:</label>
+      <label htmlFor="proj_password">Password:</label>
       <input type="password" id="proj_password" ref={passwordRef} />
       <button onClick={submit}>Submit</button>
     </div>
@@ -126,9 +126,9 @@ const DeleteBlog = () => {
   return (
     <div>
       <h1>Delete Blog Post</h1>
-      <label for="delete_title">Title</label>
+      <label htmlFor="delete_title">Title</label>
       <input type="text" id="delete_title" />
-      <label for="del_blog_password">Password:</label>
+      <label htmlFor="del_blog_password">Password:</label>
       <input type="password" id="del_blog_password" ref={passwordRef} />
       <button onClick={submit}>Submit</button>
     </div>
@@ -153,9 +153,9 @@ const DeleteProject = () => {
   return (
     <div>
       <h1>Delete Project</h1>
-      <label for="delete_name">Title</label>
+      <label htmlFor="delete_name">Title</label>
       <input type="text" id="delete_name" />
-      <label for="del_proj_password">Password:</label>
+      <label htmlFor="del_proj_password">Password:</label>
       <input type="password" id="del_proj_password" ref={passwordRef} />
       <button onClick={submit}>Submit</button>
     </div>
