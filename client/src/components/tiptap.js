@@ -123,7 +123,7 @@ const extensions = [
   }),
 ];
 
-const defaultContent = `<p>Write something!</p>`;
+const defaultContent = `<p>Click me to write something!</p>`;
 
 //editor without menu
 const PreEditor = ({ setEditor, setContent }) => {
@@ -145,6 +145,7 @@ const PreEditor = ({ setEditor, setContent }) => {
 const Editor = ({ setContent }) => {
   const [editor, setEditor] = useState(null);
   //getContent = function that gets editor's JSON
+
   useEffect(() => {
     // console.log("editor:", editor);
     if (editor) setContent(editor.getJSON());

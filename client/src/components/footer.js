@@ -5,13 +5,17 @@ const Footer = () => {
   return (
     <div className="footer">
       <p className="u-inline">© 2024. Designed & developed by Andrew Yuan. </p>
-      <a
-        href="https://github.com/Stormersyle/Personal-Website"
-        target="_blank"
-        className="source-code u-m"
-      >
-        Source Code
-      </a>
+      <div className="u-flex u-justify-center u-align-center">
+        <a
+          href="https://github.com/Stormersyle/Personal-Website"
+          target="_blank"
+          className="source-code"
+        >
+          Source Code
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/admin">Admin Panel</a>
+      </div>
     </div>
   );
 };

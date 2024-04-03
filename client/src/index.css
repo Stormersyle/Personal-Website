@@ -76,20 +76,12 @@ button:hover {
   justify-content: center;
   background-color: black;
   color: white;
+  font-size: 18px;
 }
-
-.source-code {
-  margin: 0.5vh 1vw;
-}
-
-/* academics */
-/* .notes a {
-  display: inline-block;
-  margin: 1vh 0;
-} */
 
 /* admin */
-.newblog input {
+.newblog input,
+.delete-container input {
   display: inline-block;
   min-width: 30vw;
 }
@@ -138,7 +130,7 @@ button:hover {
   margin: 0 0 0 2vw;
 }
 
-.small-git-button:hover {
+.small-github-icon:hover {
   opacity: 70%;
 }
 

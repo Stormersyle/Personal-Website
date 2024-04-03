@@ -5,7 +5,11 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <div className="Navbar">
-      <div className="navlink-container name-container">Andrew Yuan</div>
+      <div className="navlink-container name-container">
+        <Link to="/" className="nav-link u-mmm">
+          Andrew Yuan
+        </Link>
+      </div>
       <div className="navlink-container">
         <Link to="/" className="nav-link">
           Home

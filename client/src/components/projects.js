@@ -27,11 +27,9 @@ const display_project = ({ name, description, website_link, github_link }) => {
         )}
         {github_link ? (
           <a href={github_link} target="_blank" className="u-inline-block">
-            <img src="/assets/inverted_github.png" className="small-github-icon small-git-button" />
+            <img src="/assets/inverted_github.png" className="small-github-icon" />
           </a>
-        ) : (
-          <img src="/assets/inverted_github.png" className="u-inline-block small-github-icon" />
-        )}
+        ) : null}
       </div>
       <div className="proj-space-div"></div>
       <div>

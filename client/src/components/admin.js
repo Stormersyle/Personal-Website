@@ -16,7 +16,7 @@ const PostBlog = () => {
       title: titleRef.current.value,
       body: JSON.stringify(content),
       password: passwordRef.current.value,
-    }).then(() => navigate("/"));
+    }).then(() => navigate("/admin"));
   };
 
   return (
@@ -79,7 +79,7 @@ const PostProject = () => {
         priority: Number(priorityRef.current.value),
         password: passwordRef.current.value,
       };
-      post("/api/project", project_params).then(() => navigate("/"));
+      post("/api/project", project_params).then(() => navigate("/admin"));
     }
   };
 
@@ -89,7 +89,8 @@ const PostProject = () => {
       <br />
       <p>
         Type in the info to post a new project here. If there's no website link or no github link,
-        leave the corresponding link empty.
+        leave the corresponding link empty. Remember to include the HTTPS in your links! (If you
+        have them.)
       </p>
       <br />
       <div>
@@ -151,19 +152,23 @@ const DeleteBlog = () => {
       title: titleRef.current.value,
       password: passwordRef.current.value,
     }).then(() => {
-      navigate("/");
+      navigate("/admin");
     });
   };
 
   return (
-    <div className="page-container">
+    <div className="page-container delete-container">
       <p className="u-xl">Delete Blog Post</p>
       <br />
-      <label htmlFor="delete_title">Title:</label>
-      <input type="text" id="delete_title" ref={titleRef} />
+      <div className="u-flex u-justify-start">
+        <label htmlFor="delete_title">Title:&nbsp;</label>
+        <input type="text" id="delete_title" ref={titleRef} />
+      </div>
       <br />
-      <label htmlFor="del_blog_password">Password:</label>
-      <input type="password" id="del_blog_password" ref={passwordRef} />
+      <div className="u-flex u-justify-start">
+        <label htmlFor="del_blog_password">Password:&nbsp;</label>
+        <input type="password" id="del_blog_password" ref={passwordRef} />
+      </div>
       <div className="u-flex u-justify-center">
         <button onClick={() => navigate("/admin")}>Back</button>
         <button onClick={submit}>Submit</button>
@@ -183,19 +188,23 @@ const DeleteProject = () => {
       name: nameRef.current.value,
       password: passwordRef.current.value,
     }).then(() => {
-      navigate("/");
+      navigate("/admin");
     });
   };
 
   return (
-    <div className="page-container">
+    <div className="page-container delete-container">
       <p className="u-xl">Delete Project</p>
       <br />
-      <label htmlFor="delete_name">Name</label>
-      <input type="text" id="delete_name" ref={nameRef} />
+      <div className="u-flex u-justify-start">
+        <label htmlFor="delete_name">Name:&nbsp;</label>
+        <input type="text" id="delete_name" ref={nameRef} />
+      </div>
       <br />
-      <label htmlFor="del_proj_password">Password:</label>
-      <input type="password" id="del_proj_password" ref={passwordRef} />
+      <div className="u-flex u-justify-start">
+        <label htmlFor="del_proj_password">Password:&nbsp;</label>
+        <input type="password" id="del_proj_password" ref={passwordRef} />
+      </div>
       <div className="u-flex u-justify-center">
         <button onClick={() => navigate("/admin")}>Back</button>
         <button onClick={submit}>Submit</button>
@@ -212,9 +221,9 @@ const Admin = () => {
         <p className="u-xl">Admin Dashboard</p>
         <br />
         <p>
-          Welcome to the admin dashboard! Here you can post/delete blogs and projects. However, the
-          post and deletion functions are locked behind a password (no, it's not in the GitHub
-          repo), so if I didn't give you it then you can't do anything.
+          Welcome to the admin dashboard! Here is where I post/delete blogs and projects. Even
+          though you can submit a post/deletion, the server will reject it unless you enter the
+          correct password, which only I have access to.
         </p>
       </div>
       <br />
