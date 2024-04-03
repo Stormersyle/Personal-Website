@@ -73,6 +73,14 @@ form {
   display: inline-block;
 }
 
+.u-fill-width {
+  width: 100%;
+}
+
+.u-fill-height {
+  height: 100%;
+}
+
 /* flexbox methods */
 
 .u-flex {
@@ -93,11 +101,19 @@ form {
 }
 
 .u-justify-start {
-  justify-content: start;
+  justify-content: flex-start;
 }
 
 .u-align-start {
-  align-items: s start;
+  align-items: flex-start;
+}
+
+.u-justify-space-between {
+  justify-content: space-between;
+}
+
+.u-align-space-between {
+  align-items: space-between;
 }
 
 .u-flex-center-row {
