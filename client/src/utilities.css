@@ -13,35 +13,35 @@
 }
 
 .u-xs {
-  font-size: 4px;
+  font-size: 4px !important;
 }
 
 .u-s {
-  font-size: 8px;
+  font-size: 8px !important;
 }
 
 .u-sm {
-  font-size: 14px;
+  font-size: 14px !important;
 }
 
 .u-m {
-  font-size: 16px;
+  font-size: 16px !important;
 }
 
 .u-m2 {
-  font-size: 18px;
+  font-size: 18px !important;
 }
 
 .u-l {
-  font-size: 24px;
+  font-size: 24px !important;
 }
 
 .u-xl {
-  font-size: 30px;
+  font-size: 30px !important;
 }
 
 .u-huge {
-  font-size: 50px;
+  font-size: 50px !important;
 }
 
 /* this sets the default font */
@@ -61,73 +61,82 @@ form {
   flex-grow: 1;
 }
 
+/* utility classes; override everything else */
 .u-inline {
-  display: inline;
+  display: inline !important;
 }
 
 .u-block {
-  display: block;
+  display: block !important;
 }
 
 .u-inline-block {
-  display: inline-block;
+  display: inline-block !important;
 }
 
-.u-fill-width {
-  width: 100%;
+.u-width-fill {
+  width: 100% !important;
 }
 
-.u-fill-height {
-  height: 100%;
+.u-height-fill {
+  height: 100% !important;
+}
+
+.u-width-fit {
+  width: fit-content !important;
+}
+
+.u-height-fit {
+  height: fit-content !important;
 }
 
 /* flexbox methods */
 
 .u-flex {
-  display: flex;
+  display: flex !important;
 }
 
 .u-flex-col {
-  display: flex;
-  flex-direction: column;
+  display: flex !important;
+  flex-direction: column !important;
 }
 
 .u-justify-center {
-  justify-content: center;
+  justify-content: center !important;
 }
 
 .u-align-center {
-  align-items: center;
+  align-items: center !important;
 }
 
 .u-justify-start {
-  justify-content: flex-start;
+  justify-content: flex-start !important;
 }
 
 .u-align-start {
-  align-items: flex-start;
+  align-items: flex-start !important;
 }
 
 .u-justify-space-between {
-  justify-content: space-between;
+  justify-content: space-between !important;
 }
 
 .u-align-space-between {
-  align-items: space-between;
+  align-items: space-between !important;
 }
 
 .u-flex-center-row {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  align-items: center !important;
 }
 
 .u-flex-center-col {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
 }
 
 /* text */
@@ -159,39 +168,4 @@ form {
 
 .u-link:hover {
   color: var(--primary--dim);
-}
-
-.twoColumn {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  /* most flexible, since we can control positions w/ margins */
-}
-
-.twoColumn_center {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-
-.twoColumn_spaced {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.twoColumn_even {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: flex-start;
-}
-
-.twoColumn_right {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
 }
