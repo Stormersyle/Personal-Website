@@ -45,3 +45,15 @@
   border-top: 2px solid rgba(13, 13, 13, 0.1);
   margin: 2rem 0;
 }
+
+.editor-menu {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.editor-menu button {
+  margin: 0.5vh 0.1vw;
+  padding: 0.5vh 0.5vw;
+}

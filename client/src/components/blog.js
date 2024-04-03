@@ -1,17 +1,16 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { get } from "../utilities.js";
-import "../stylesheets/blog.css";
 
 import Waiting from "./waiting.js";
-import { Display } from "./tiptap.js";
 import { formatDate } from "../utilities.js";
+import { Display } from "./tiptap.js";
 
-const display_link = (title, timestamp) => {
+const display_link = ({ title, timestamp }) => {
   return (
     <li key={timestamp}>
-      {formatDate(timestamp)}: <Link to={`/blog/post/${timestamp}`}>{title}</Link>;
+      {formatDate(timestamp)}: <Link to={`/blog/post/${timestamp}`}>{title}</Link>
     </li>
   );
   //note: we link to blog posts using the timestamp! because no two posts have the same timestamp, and this is easier than id.
@@ -25,10 +24,12 @@ const Blog = () => {
   }, []);
   if (postList) {
     return (
-      <div className="page-container">
-        <p className="u-xl">Blog</p>
-        <br />
-        <ul>{postList.map(display_link)}</ul>
+      <div className="page-container blogroll">
+        <div>
+          <p className="u-xl">Blog</p>
+          <br />
+          <ul>{postList.map(display_link)}</ul>
+        </div>
       </div>
     );
   } else return <Waiting />;
@@ -38,14 +39,24 @@ const Blog = () => {
 //next: each individual blog post
 
 const display_post = (title, date, body) => {
-  //note: body is in JSON
+  //note: body is a JSON string
   return (
     <div className="page-container">
-      <h2>{title}</h2>
-      <p>{date}</p>
+      <div>
+        <p className="u-xl">{title}</p>
+        <p className="u-m">{date}</p>
+      </div>
       <br />
       <Display content={body} />
-      <Link to="/blog">Return to blog</Link>
+      <br />
+
+      <div className="u-flex-center-col">
+        <hr className="end-blog" />
+
+        <Link to="/blog" className="return">
+          Return to blog
+        </Link>
+      </div>
     </div>
   );
 };

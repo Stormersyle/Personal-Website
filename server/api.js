@@ -10,7 +10,10 @@ const password = process.env.PASSWORD; //password used to post blog and projects
 //when posting, ensure password is correct
 router.post("*", (req, res, next) => {
   if (req.body.password === password) next();
-  else res.send({ error: "failed to post" });
+  else {
+    res.send({ error: "failed to post" });
+    console.log("wrong password!");
+  }
   return;
 });
 

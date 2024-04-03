@@ -1,11 +1,11 @@
 import React from "react";
-import { useState, useEffect, useRef } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { post } from "../utilities.js";
-import "../stylesheets/admin.css";
 import { Editor } from "./tiptap.js";
 
 const PostBlog = () => {
+  const [content, setContent] = useState();
   const titleRef = useRef(null);
   const passwordRef = useRef(null);
   const navigate = useNavigate();
@@ -14,19 +14,26 @@ const PostBlog = () => {
     if (!(titleRef && passwordRef)) return;
     post("/api/blog", {
       title: titleRef.current.value,
-      body: Editor.getJSON(),
+      body: JSON.stringify(content),
       password: passwordRef.current.value,
     }).then(() => navigate("/"));
   };
 
   return (
-    <div>
-      <h1>New Blog Post</h1>
-      <label htmlFor="post_title">Title:</label>
-      <input type="text" id="post_title" ref={titleRef} />
-      <Editor />
-      <label htmlFor="post_password">Password:</label>
-      <input type="password" id="post_password" ref={passwordRef} />
+    <div className="page-container">
+      <p className="u-xl">New Blog Post</p>
+      <br />
+      <div>
+        <label htmlFor="post_title">Title: </label>
+        <input type="text" id="post_title" ref={titleRef} />
+      </div>
+      <br />
+      <Editor setContent={setContent} />
+      <br />
+      <div>
+        <label htmlFor="post_password">Password: </label>
+        <input type="password" id="post_password" ref={passwordRef} />
+      </div>
       <button onClick={submit}>Submit</button>
     </div>
   );
@@ -124,10 +131,12 @@ const DeleteBlog = () => {
   };
 
   return (
-    <div>
-      <h1>Delete Blog Post</h1>
-      <label htmlFor="delete_title">Title</label>
-      <input type="text" id="delete_title" />
+    <div className="page-container">
+      <p className="u-xl">Delete Blog Post</p>
+      <br />
+      <label htmlFor="delete_title">Title:</label>
+      <input type="text" id="delete_title" ref={titleRef} />
+      <br />
       <label htmlFor="del_blog_password">Password:</label>
       <input type="password" id="del_blog_password" ref={passwordRef} />
       <button onClick={submit}>Submit</button>
@@ -151,10 +160,10 @@ const DeleteProject = () => {
   };
 
   return (
-    <div>
+    <div className="page-container">
       <h1>Delete Project</h1>
-      <label htmlFor="delete_name">Title</label>
-      <input type="text" id="delete_name" />
+      <label htmlFor="delete_name">Name</label>
+      <input type="text" id="delete_name" ref={nameRef} />
       <label htmlFor="del_proj_password">Password:</label>
       <input type="password" id="del_proj_password" ref={passwordRef} />
       <button onClick={submit}>Submit</button>
@@ -165,17 +174,31 @@ const DeleteProject = () => {
 const Admin = () => {
   const navigate = useNavigate();
   return (
-    <div>
-      <h1>Admin Dashboard</h1>
+    <div className="page-container">
       <div>
-        <h2>New Blog/Project</h2>
-        <button onClick={() => navigate("/newblog")}>New Blog Post</button>
-        <button onClick={() => navigate("/newproject")}>New Project</button>
+        <p className="u-xl">Admin Dashboard</p>
+        <br />
+        <p>
+          Welcome to the admin dashboard! Here you can post/delete blogs and projects. However, the
+          post and deletion functions are locked behind a password (no, it's not in the GitHub
+          repo), so if I didn't give you it then you can't do anything.
+        </p>
       </div>
+      <br />
       <div>
-        <h2>Delete Blog/Project</h2>
-        <button onClick={() => navigate("/deleteblog")}>Delete Blog Post</button>
-        <button onClick={() => navigate("/deleteproject")}>Delete Project</button>
+        <p className="u-l">New Blog/Project</p>
+        <div className="button-container">
+          <button onClick={() => navigate("/newblog")}>New Blog Post</button>
+          <button onClick={() => navigate("/newproject")}>New Project</button>
+        </div>
+      </div>
+      <br />
+      <div>
+        <p className="u-l">Delete Blog/Project</p>
+        <div className="button-container">
+          <button onClick={() => navigate("/deleteblog")}>Delete Blog Post</button>
+          <button onClick={() => navigate("/deleteproject")}>Delete Project</button>
+        </div>
       </div>
     </div>
   );

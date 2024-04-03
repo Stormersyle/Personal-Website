@@ -1,23 +1,20 @@
-//shamelessly copied from TipTap example
-
 import "../stylesheets/tiptap.css";
 
 import { Color } from "@tiptap/extension-color";
 import ListItem from "@tiptap/extension-list-item";
 import TextStyle from "@tiptap/extension-text-style";
-import { EditorProvider, generateHTML, useCurrentEditor } from "@tiptap/react";
+import { useEditor, EditorContent } from "@tiptap/react";
+import { generateHTML } from "@tiptap/html";
 import StarterKit from "@tiptap/starter-kit";
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-const MenuBar = () => {
-  const { editor } = useCurrentEditor();
-
+const MenuBar = ({ editor }) => {
   if (!editor) {
     return null;
   }
 
   return (
-    <>
+    <div className="editor-menu">
       <button
         onClick={() => editor.chain().focus().toggleBold().run()}
         disabled={!editor.can().chain().focus().toggleBold().run()}
@@ -46,8 +43,6 @@ const MenuBar = () => {
       >
         code
       </button>
-      <button onClick={() => editor.chain().focus().unsetAllMarks().run()}>clear marks</button>
-      <button onClick={() => editor.chain().focus().clearNodes().run()}>clear nodes</button>
       <button
         onClick={() => editor.chain().focus().setParagraph().run()}
         className={editor.isActive("paragraph") ? "is-active" : ""}
@@ -109,7 +104,7 @@ const MenuBar = () => {
       >
         redo
       </button>
-    </>
+    </div>
   );
 };
 
@@ -130,24 +125,47 @@ const extensions = [
 
 const defaultContent = `<p>Write something!</p>`;
 
-const Editor = () => {
+//editor without menu
+const PreEditor = ({ setEditor, setContent }) => {
+  console.log("setContent", setContent);
+  const editor = useEditor({
+    extensions: extensions,
+    content: defaultContent,
+    editable: true,
+    onUpdate: ({ editor }) => {
+      setContent(editor.getJSON());
+      // editor.getJSON() is a JSON OBJECT, note a JSON STRING
+    },
+  });
+  useEffect(() => setEditor(editor), [editor]);
+  return <EditorContent editor={editor} />;
+};
+
+//editor with menu
+const Editor = ({ setContent }) => {
+  const [editor, setEditor] = useState(null);
+  //getContent = function that gets editor's JSON
+  useEffect(() => {
+    // console.log("editor:", editor);
+    if (editor) setContent(editor.getJSON());
+  }, [editor]);
   return (
-    <EditorProvider
-      slotBefore={<MenuBar />}
-      extensions={extensions}
-      content={defaultContent}
-    ></EditorProvider>
+    <div>
+      <MenuBar editor={editor} />
+      <PreEditor setEditor={setEditor} setContent={setContent} />
+    </div>
   );
 };
 
 const Display = ({ content }) => {
-  return (
-    <EditorProvider
-      extensions={extensions}
-      content={generateHTML(content)}
-      editable={false}
-    ></EditorProvider>
-  );
+  // content is a JSON string
+  //reason for massive bug: generateHTML needs BOTH the JSON objet and an extensions array! I forgot about the latter
+  const editor = useEditor({
+    extensions: extensions,
+    content: generateHTML(JSON.parse(content), extensions),
+    editable: false,
+  });
+  return <EditorContent editor={editor} />;
 };
 
 export { Editor, Display };

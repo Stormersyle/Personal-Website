@@ -69,7 +69,7 @@ export function post(endpoint, params = {}) {
 
 export function formatDate(timestamp) {
   //given unix timestamp, returns corresponding date as a string
-  const date = new Date(Number(timestamp) * 1000);
+  const date = new Date(Number(timestamp));
   const formatter = new Intl.DateTimeFormat("en-US", {
     year: "numeric",
     month: "long", // 'long' for full month name

@@ -21,7 +21,7 @@
   width: 70%;
   min-height: 70vh;
   /* min-height: 70vh makes the page-container automatically extend to the bottom */
-  background-color: black;
+  background-color: #182038;
   color: white;
   display: flex;
   flex-direction: column;
@@ -47,15 +47,39 @@ p {
   line-height: 140%;
 }
 
+hr {
+  color: white;
+}
+
+button {
+  margin: 3vh 1vw 3vh 0;
+  width: fit-content;
+  padding: 1vh 1vw;
+  font-family: Arial;
+  font-size: 16px;
+  background-color: rgb(22, 91, 117);
+  color: white;
+}
+
+button:hover {
+  opacity: 70%;
+}
+
+/* footer */
 .footer {
-  width: 100%;
+  width: 70%;
+  padding: 0 15%;
   height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #182038;
+  background-color: black;
   color: white;
+}
+
+.source-code {
+  margin: 0.5vh 1vw;
 }
 
 /* academics */
@@ -76,8 +100,24 @@ p {
   margin: 1vh 0;
 }
 
+/* admin */
+input {
+  display: inline-block;
+  min-width: 30vw;
+}
+
 /* blog */
 .blogroll li {
   margin: 1vh 0;
   list-style: none;
+}
+
+.return {
+  display: inline-block;
+  width: fit-content;
+  margin: 2vh 0;
+}
+
+.end-blog {
+  width: 100%;
 }

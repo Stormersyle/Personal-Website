@@ -31,18 +31,18 @@ const Home = () => {
           I’m a first-year at MIT double-majoring in mathematics (course 18) and computer science
           (course 6-3). Within computer science, I’m especially interested in AI/machine learning,
           and in general I'm passionate about building technology to make an impact on the world. I
-          also love solving math problems, especially combinatorics. Career-wise, I'm interested in
-          the fields of entrepreneurship, ML research, and quantitative finance.
-          <br />
-          <br />
-          Outside of academics, I enjoy playing chess, volleyball, and video games. Feel free to
-          check out my personal projects, coursework/notes, and (recently started) blog. <br />
-          <br />
-          My resume is available{" "}
+          also love solving math problems, especially combinatorics. Career-wise, I'm interested
+          startups, ML research, quantitative finance, and software engineering. My resume is
+          available{" "}
           <a href="/assets/resume.pdf" target="_blank">
             here
           </a>
           .
+        </p>
+        <br />
+        <p className="u-block u-m2">
+          In my free time, I enjoy playing chess and volleyball. Feel free to check out my
+          resources/notes, projects, or (newly started) blog!
         </p>
       </div>
     </div>
