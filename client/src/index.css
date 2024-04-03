@@ -101,9 +101,23 @@ button:hover {
 }
 
 /* admin */
-input {
+.newblog input {
   display: inline-block;
   min-width: 30vw;
+}
+
+.newproject textarea {
+  display: inline-block;
+  width: 80%;
+  margin: 1vh 0.5vw;
+}
+
+.newproject #name {
+  width: 85%;
+}
+
+.newproject input {
+  margin: 1vh 0.5vw;
 }
 
 /* blog */
@@ -121,3 +135,5 @@ input {
 .end-blog {
   width: 100%;
 }
+
+/* project */

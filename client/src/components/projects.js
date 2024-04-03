@@ -25,7 +25,7 @@ const display_project = ({
   timestamp,
 }) => {
   return (
-    <div>
+    <div className="project">
       <div>
         <a href={website_link} target="_blank">
           {name}
@@ -53,7 +53,9 @@ const ProjectsPage = () => {
   if (projList) {
     return (
       <div className="page-container">
-        <p className="u-xl">Projects</p>
+        <div>
+          <p className="u-xl">Projects</p>
+        </div>
         {projList.map(display_project)}
       </div>
     );

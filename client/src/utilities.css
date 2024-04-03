@@ -69,17 +69,35 @@ form {
   display: block;
 }
 
-.u-inlineBlock {
+.u-inline-block {
   display: inline-block;
 }
+
+/* flexbox methods */
 
 .u-flex {
   display: flex;
 }
 
-.u-flexColumn {
+.u-flex-col {
   display: flex;
   flex-direction: column;
+}
+
+.u-justify-center {
+  justify-content: center;
+}
+
+.u-align-center {
+  align-items: center;
+}
+
+.u-justify-start {
+  justify-content: start;
+}
+
+.u-align-start {
+  align-items: s start;
 }
 
 .u-flex-center-row {
@@ -96,6 +114,7 @@ form {
   align-items: center;
 }
 
+/* text */
 .u-bold {
   font-weight: 600;
 }
