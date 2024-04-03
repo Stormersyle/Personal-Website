@@ -1,7 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { get } from "../utilities.js";
-import "../stylesheets/projects.css";
 
 import Waiting from "./waiting.js";
 
