@@ -14,7 +14,7 @@ const Footer = () => {
           Source Code
         </a>
         &nbsp;|&nbsp;
-        <a href="/admin">Admin Panel</a>
+        <Link to="/admin">Admin Panel</Link>
       </div>
     </div>
   );
