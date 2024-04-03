@@ -52,7 +52,7 @@ const Academics = () => {
         <div className="linebreak-2"></div>
         <ul>
           <li>
-            <a href="google.com" target="_blank">
+            <a href="/" target="_blank">
               Linear Algebra: An Intuition-Focused Development
             </a>
             <div className="linebreak-1"></div>
