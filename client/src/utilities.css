@@ -28,7 +28,7 @@
   font-size: 16px !important;
 }
 
-.u-m2 {
+.u-mm {
   font-size: 18px !important;
 }
 
@@ -144,6 +144,26 @@ form {
 }
 
 /* text */
+.linebreak-2 {
+  width: 100%;
+  height: 2vh;
+}
+
+.linebreak-1pt5 {
+  width: 100%;
+  height: 1.5vh;
+}
+
+.linebreak-1 {
+  width: 100%;
+  height: 1vh;
+}
+
+.linebreak-0pt5 {
+  width: 100%;
+  height: 0.5vh;
+}
+
 .u-bold {
   font-weight: 600;
 }
