@@ -51,7 +51,6 @@ router.post("/project", (req, res) => {
   let project_fields = {
     name: req.body.name,
     description: req.body.description,
-    screenshot_link: req.body.screenshot_link,
     website_link: req.body.website_link,
     github_link: req.body.github_link,
     starred: req.body.starred,
