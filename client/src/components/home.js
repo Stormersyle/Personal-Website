@@ -11,7 +11,7 @@ const Home = () => {
           </div>
           <br />
 
-          <p className=" u-m2">
+          <p className=" u-mm">
             I'm a student at MIT studying math and computer science. Welcome to my personal website!
           </p>
           <div className="headshot-container">
@@ -27,7 +27,7 @@ const Home = () => {
       <div id="home-part2">
         <p className="u-block u-xl">About Me</p>
         <br />
-        <p className="u-block u-m2">
+        <p className="u-block u-mm">
           I’m a first-year at MIT double-majoring in mathematics (course 18) and computer science
           (course 6-3). Within computer science, I’m especially interested in AI/machine learning,
           and in general I'm passionate about building technology to make an impact on the world. I
@@ -40,7 +40,7 @@ const Home = () => {
           .
         </p>
         <br />
-        <p className="u-block u-m2">
+        <p className="u-block u-mm">
           In my free time, I enjoy playing chess and volleyball. Feel free to check out my
           resources/notes, projects, or (newly started) blog!
         </p>

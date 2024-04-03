@@ -11,6 +11,7 @@ const display_link = ({ title, timestamp }) => {
   return (
     <li key={timestamp}>
       {formatDate(timestamp)}: <Link to={`/blog/post/${timestamp}`}>{title}</Link>
+      <div className="linebreak-0pt5"></div>
     </li>
   );
   //note: we link to blog posts using the timestamp! because no two posts have the same timestamp, and this is easier than id.
@@ -44,7 +45,7 @@ const display_post = (title, date, body) => {
     <div className="page-container">
       <div>
         <p className="u-xl">{title}</p>
-        <p className="u-m">{date}</p>
+        <p className="u-mm">{date}</p>
       </div>
       <br />
       <Display content={body} />

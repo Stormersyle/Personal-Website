@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
 }
 
 /* this contains both page and navbar; makes sure page is centered + setup right */
@@ -43,7 +44,6 @@ a:hover {
 }
 
 p {
-  font-size: 16px;
   line-height: 140%;
 }
 
@@ -55,8 +55,8 @@ button {
   margin: 3vh 1vw 3vh 0;
   width: fit-content;
   padding: 1vh 1vw;
-  font-family: Arial;
-  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
   background-color: rgb(22, 91, 117);
   color: white;
 }
@@ -83,22 +83,10 @@ button:hover {
 }
 
 /* academics */
-.coursework {
-  width: 100%;
-}
-
-.coursework li {
-  margin: 0.6vh 0;
-}
-
-.notes-heading {
-  margin: 1vh 0;
-}
-
-.notes a {
+/* .notes a {
   display: inline-block;
   margin: 1vh 0;
-}
+} */
 
 /* admin */
 .newblog input {
@@ -136,4 +124,24 @@ button:hover {
   width: 100%;
 }
 
-/* project */
+/* projects */
+.project {
+  border: 2px solid white;
+  border-radius: 20px;
+  margin: 3vh 0;
+  padding: 2vh 1.5vw 3vh 1.5vw;
+}
+
+.small-github-icon {
+  height: 4.5vh;
+  width: auto;
+  margin: 0 0 0 2vw;
+}
+
+.small-git-button:hover {
+  opacity: 70%;
+}
+
+.proj-space-div {
+  height: 2vh;
+}

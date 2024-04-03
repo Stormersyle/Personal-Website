@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { post } from "../utilities.js";
 import { Editor } from "./tiptap.js";
 
@@ -34,14 +34,16 @@ const PostBlog = () => {
         <label htmlFor="post_password">Password: </label>
         <input type="password" id="post_password" ref={passwordRef} />
       </div>
-      <button onClick={submit}>Submit</button>
+      <div className="u-flex u-justify-center">
+        <button onClick={() => navigate("/admin")}>Back</button>
+        <button onClick={submit}>Submit</button>
+      </div>
     </div>
   );
 };
 
 //  name: String,
 // description: String,
-// screenshot_link: String,
 // website_link: String,
 // github_link: String,
 // starred: Boolean, //true>false
@@ -51,7 +53,6 @@ const PostBlog = () => {
 const PostProject = () => {
   const nameRef = useRef(null);
   const descriptionRef = useRef(null);
-  const screenshotRef = useRef(null);
   const websiteRef = useRef(null);
   const githubRef = useRef(null);
   const starredRef = useRef(null);
@@ -63,7 +64,6 @@ const PostProject = () => {
     if (
       nameRef &&
       descriptionRef &&
-      screenshotRef &&
       websiteRef &&
       githubRef &&
       starredRef &&
@@ -73,7 +73,6 @@ const PostProject = () => {
       const project_params = {
         name: nameRef.current.value,
         description: descriptionRef.current.value,
-        screenshot_link: screenshotRef.current.value,
         website_link: websiteRef.current.value,
         github_link: githubRef.current.value,
         starred: starredRef.current.checked,
@@ -88,6 +87,11 @@ const PostProject = () => {
     <div className="page-container newproject">
       <p className="u-xl">New Project</p>
       <br />
+      <p>
+        Type in the info to post a new project here. If there's no website link or no github link,
+        leave the corresponding link empty.
+      </p>
+      <br />
       <div>
         <label htmlFor="name">Name:</label>
         <input type="text" id="name" ref={nameRef} />
@@ -99,34 +103,39 @@ const PostProject = () => {
       </div>
       <br />
       <div className="u-flex u-justify-start">
-        <div>
-          <label htmlFor="screenshot">Screenshot:</label>
-          <input type="text" id="screenshot" ref={screenshotRef} />
-        </div>
-        <div>
+        <div className="u-width-fit">
           <label htmlFor="website">Website:</label>
           <input type="text" id="website" ref={websiteRef} />
         </div>
-        <div>
+        <div className="u-width-fit">
           <label htmlFor="github">Github:</label>
           <input type="text" id="github" ref={githubRef} />
         </div>
       </div>
-      <div className="u-flex u-justify-start">
-        <div>
-          <label htmlFor="starred">Starred:</label>
-          <input type="checkbox" id="starred" ref={starredRef} />
+      <div className="u-flex u-justify-start u-align-center">
+        <div className="u-width-fit">
+          <div className="u-flex u-justify-start u-align-center">
+            <label htmlFor="starred">Starred:</label>
+            <input type="checkbox" id="starred" ref={starredRef} className="u-block" />
+          </div>
         </div>
-        <div>
-          <label htmlFor="priority">Priority:</label>
-          <input type="number" id="priority" ref={priorityRef} />
+        <div className="u-width-fit">
+          <div className="u-flex u-justify-start u-align-center">
+            <label htmlFor="priority">Priority:</label>
+            <input type="number" id="priority" ref={priorityRef} />
+          </div>
         </div>
-        <div className="u-flex u-justify-start">
-          <label htmlFor="proj_password">Password:</label>
-          <input type="password" id="proj_password" ref={passwordRef} />
+        <div className="u-width-fit">
+          <div>
+            <label htmlFor="proj_password">Password:</label>
+            <input type="password" id="proj_password" ref={passwordRef} />
+          </div>
         </div>
       </div>
-      <button onClick={submit}>Submit</button>
+      <div className="u-flex u-justify-center">
+        <button onClick={() => navigate("/admin")}>Back</button>
+        <button onClick={submit}>Submit</button>
+      </div>
     </div>
   );
 };
@@ -155,7 +164,10 @@ const DeleteBlog = () => {
       <br />
       <label htmlFor="del_blog_password">Password:</label>
       <input type="password" id="del_blog_password" ref={passwordRef} />
-      <button onClick={submit}>Submit</button>
+      <div className="u-flex u-justify-center">
+        <button onClick={() => navigate("/admin")}>Back</button>
+        <button onClick={submit}>Submit</button>
+      </div>
     </div>
   );
 };
@@ -184,7 +196,10 @@ const DeleteProject = () => {
       <br />
       <label htmlFor="del_proj_password">Password:</label>
       <input type="password" id="del_proj_password" ref={passwordRef} />
-      <button onClick={submit}>Submit</button>
+      <div className="u-flex u-justify-center">
+        <button onClick={() => navigate("/admin")}>Back</button>
+        <button onClick={submit}>Submit</button>
+      </div>
     </div>
   );
 };
