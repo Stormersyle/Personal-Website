@@ -57,7 +57,9 @@ const Academics = () => {
               what's "really going on". Even in proof-based books like Artin's Algebra or Axler's
               LADR, a lot of intuition is left out. In these notes, I try to present the entirety of
               the content of a first course in linear algebra from an rigorous yet intuitive
-              perspective. At the end, I also present some connections to group theory.
+              perspective. At the end, I also present some connections to group theory. (Note: I'm
+              currently still working on these notes so the link doesn't work right now; I expect to
+              finish within the next few months.)
             </p>
             <br />
           </li>
