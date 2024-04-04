@@ -126,15 +126,26 @@ button:hover {
 }
 
 .small-github-icon {
-  height: 4.5vh;
+  height: 4.6vh;
   width: auto;
-  margin: 0 0 0 2vw;
+  margin: 0 0 0 1vw;
 }
 
 .small-github-icon:hover {
   opacity: 70%;
 }
 
-.proj-space-div {
-  height: 2vh;
+.star-icon {
+  height: 4.7vh;
+  width: auto;
+  margin: 0 0.5vw 0 1vw;
 }
+
+.proj-image {
+  margin: 0 0 0 2vw;
+  width: 30vw;
+  height: 30vh;
+  object-fit: contain;
+}
+/* note: for an img, we need to set a width and height for the object-fit to work. The width and height properties specify the content box, and object-fit is with respect to the content box.
+In this case: contain means it scales (either up or down) to exactly fit the entire content box, while maintaing its aspect ratio.*/

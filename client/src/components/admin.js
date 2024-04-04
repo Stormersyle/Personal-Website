@@ -59,6 +59,7 @@ const PostProject = () => {
   const descriptionRef = useRef(null);
   const websiteRef = useRef(null);
   const githubRef = useRef(null);
+  const imageRef = useRef(null);
   const starredRef = useRef(null);
   const priorityRef = useRef(null);
   const passwordRef = useRef(null);
@@ -70,6 +71,7 @@ const PostProject = () => {
       descriptionRef &&
       websiteRef &&
       githubRef &&
+      imageRef &&
       starredRef &&
       priorityRef &&
       passwordRef
@@ -79,6 +81,7 @@ const PostProject = () => {
         description: descriptionRef.current.value,
         website_link: websiteRef.current.value,
         github_link: githubRef.current.value,
+        image_link: imageRef.current.value,
         starred: starredRef.current.checked,
         priority: Number(priorityRef.current.value),
         password: passwordRef.current.value,
@@ -115,6 +118,10 @@ const PostProject = () => {
         <div className="u-width-fit">
           <label htmlFor="github">Github:</label>
           <input type="text" id="github" ref={githubRef} />
+        </div>
+        <div className="u-width-fit">
+          <label htmlFor="image">Image:</label>
+          <input type="text" id="image" ref={imageRef} />
         </div>
       </div>
       <div className="u-flex u-justify-start u-align-center">
@@ -278,30 +285,36 @@ const EditBlog = () => {
 const EditProject = () => {
   const [defaults, setDefaults] = useState({
     description: "",
-    website: "",
-    github: "",
+    website_link: "",
+    github_link: "",
+    image_link: "",
     starred: false,
     priority: 0,
   });
   const [nameDisabled, setNameDisabled] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
   const nameRef = useRef(null);
   const descriptionRef = useRef(null);
   const websiteRef = useRef(null);
   const githubRef = useRef(null);
+  const imageRef = useRef(null);
   const starredRef = useRef(null);
   const priorityRef = useRef(null);
   const passwordRef = useRef(null);
   const navigate = useNavigate();
 
   const confirmName = () => {
-    if (!titleRef) return;
+    if (!nameRef) return;
     get("/api/proj_content", { name: nameRef.current.value })
       .then((info) => {
         setDefaults(info);
         setNameDisabled(true);
+        setIsChecked(info.starred);
       })
       .catch(() => alert("bad name!"));
   };
+
+  console.log("starred", defaults.starred);
 
   const submit = () => {
     if (
@@ -309,6 +322,7 @@ const EditProject = () => {
       descriptionRef &&
       websiteRef &&
       githubRef &&
+      imageRef &&
       starredRef &&
       priorityRef &&
       passwordRef
@@ -318,6 +332,7 @@ const EditProject = () => {
         description: descriptionRef.current.value,
         website_link: websiteRef.current.value,
         github_link: githubRef.current.value,
+        image_link: imageRef.current.value,
         starred: starredRef.current.checked,
         priority: Number(priorityRef.current.value),
         password: passwordRef.current.value,
@@ -345,11 +360,15 @@ const EditProject = () => {
       <div className="u-flex u-justify-start">
         <div className="u-width-fit">
           <label htmlFor="website">Website:</label>
-          <input type="text" id="website" ref={websiteRef} defaultValue={defaults.website} />
+          <input type="text" id="website" ref={websiteRef} defaultValue={defaults.website_link} />
         </div>
         <div className="u-width-fit">
           <label htmlFor="github">Github:</label>
-          <input type="text" id="github" ref={githubRef} defaultValue={defaults.github} />
+          <input type="text" id="github" ref={githubRef} defaultValue={defaults.github_link} />
+        </div>
+        <div className="u-width-fit">
+          <label htmlFor="image">Image:</label>
+          <input type="text" id="image" ref={imageRef} defaultValue={defaults.image_link} />
         </div>
       </div>
       <div className="u-flex u-justify-start u-align-center">
@@ -361,19 +380,16 @@ const EditProject = () => {
               id="starred"
               ref={starredRef}
               className="u-block"
-              defaultChecked={defaults.starred}
+              checked={isChecked}
+              onChange={(event) => setIsChecked(event.target.checked)}
             />
+            {/* Note: you need to use checked+onChange to make the checkbox input's default value change upon re-render; can't use defaultChecked, bc it only applies to initial mount*/}
           </div>
         </div>
         <div className="u-width-fit">
           <div className="u-flex u-justify-start u-align-center">
             <label htmlFor="priority">Priority:</label>
-            <input
-              type="number"
-              id="priority"
-              ref={priorityRef}
-              defaultPriority={defaults.priority}
-            />
+            <input type="number" id="priority" ref={priorityRef} defaultValue={defaults.priority} />
           </div>
         </div>
         <div className="u-width-fit">

@@ -41,9 +41,10 @@ router.get("/blog_content", (req, res) => {
   // Note: we cannot do .then(res.find); need to do (doc)=>res.send(doc), so that res.send inherits context
 });
 
+// projects are sorted first by starred (first starred, then non-starred), second by priority (high to low), finally timestamp (latest to oldest)
 router.get("/projects", (req, res) => {
   Project.find()
-    .sort({ starred: -1, priority: 1, timestamp: -1 })
+    .sort({ starred: -1, priority: -1, timestamp: -1 })
     .then((projects) => {
       res.send(projects);
     });
@@ -51,13 +52,13 @@ router.get("/projects", (req, res) => {
 
 //get project content by name
 router.get("/proj_content", (req, res) => {
-  Project.findOne({ name: req.query.name }).then(res.send);
+  Project.findOne({ name: req.query.name }).then((info) => res.send(info));
 });
 
 //posting
 
 router.post("/blog", (req, res) => {
-  const newPost = new BlogPost({ title: req.body.title, body: req.body.body }); //blog post should be just a string; formatting should be done using symbols
+  const newPost = new BlogPost({ title: req.body.title.trim(), body: req.body.body }); //blog post should be just a string; formatting should be done using symbols
   newPost.save().then(res.send({ title: req.body.title, body: req.body.body }));
   const newBackUp = new BackupBlog({ title: req.body.title, body: req.body.body });
   newBackUp.save();
@@ -76,10 +77,11 @@ router.post("/delete_blog", (req, res) => {
 
 router.post("/project", (req, res) => {
   let project_fields = {
-    name: req.body.name,
+    name: req.body.name.trim(),
     description: req.body.description,
     website_link: req.body.website_link,
     github_link: req.body.github_link,
+    image_link: req.body.image_link,
     starred: req.body.starred,
     priority: req.body.priority,
   };
@@ -90,7 +92,7 @@ router.post("/project", (req, res) => {
 });
 
 router.post("/edit_project", (req, res) => {
-  const { name, description, website_link, github_link, starred, priority } = req.body;
+  const { name, description, website_link, github_link, image_link, starred, priority } = req.body;
   Project.updateOne(
     { name: name },
     {
@@ -98,11 +100,14 @@ router.post("/edit_project", (req, res) => {
         description: description,
         website_link: website_link,
         github_link: github_link,
+        image_link: image_link,
         starred: starred,
         priority: priority ? priority : 0,
       },
     }
-  ).then(() => res.send({}));
+  ).then((info) => {
+    res.send({});
+  });
 });
 
 router.post("/delete_project", (req, res) => {
