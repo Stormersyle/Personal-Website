@@ -16,7 +16,7 @@ import Waiting from "./waiting.js";
 
 const display_project = ({ name, description, website_link, github_link, image_link, starred }) => {
   return (
-    <div className="u-width-fill u-flex u-align-start project" key={name}>
+    <div className="u-width-fill u-flex u-align-center project" key={name}>
       <div className="u-height-fill u-flex-col words-container">
         <div className="u-height-fit u-flex u-justify-start u-align-center">
           {website_link ? (
