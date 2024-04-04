@@ -40,8 +40,8 @@ const Home = () => {
         </p>
         <br />
         <p className="u-block u-mm">
-          In my free time, I enjoy playing chess and volleyball. Feel free to check out my
-          resources/notes, projects, or (newly started) blog!
+          In my free time, I enjoy playing chess and volleyball. Feel free to check out my projects,
+          resources/notes, or (newly started) blog!
         </p>
       </div>
     </div>
