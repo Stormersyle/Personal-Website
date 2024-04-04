@@ -11,7 +11,15 @@ import { Blog, BlogPost } from "./components/blog.js";
 import Contact from "./components/contact.js";
 import NavBar from "./components/navbar.js";
 import Footer from "./components/footer.js";
-import { PostBlog, PostProject, DeleteBlog, DeleteProject, Admin } from "./components/admin.js";
+import {
+  PostBlog,
+  PostProject,
+  EditBlog,
+  EditProject,
+  DeleteBlog,
+  DeleteProject,
+  Admin,
+} from "./components/admin.js";
 
 const App = () => {
   return (
@@ -27,6 +35,8 @@ const App = () => {
         <Route path="/admin" element={<Admin />} />
         <Route path="/newblog" element={<PostBlog />} />
         <Route path="/newproject" element={<PostProject />} />
+        <Route path="/editblog" element={<EditBlog />} />
+        <Route path="/editproject" element={<EditProject />} />
         <Route path="/deleteblog" element={<DeleteBlog />} />
         <Route path="/deleteproject" element={<DeleteProject />} />
       </Routes>

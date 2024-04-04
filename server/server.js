@@ -21,6 +21,7 @@ mongoose
   .catch((err) => console.log(`Error connecting to MongoDB: ${err}`));
 
 // set up bodyParser, which allows us to process POST requests
+//this parses the body of every POST request into JSON; so in /api, we can directly treat req.body as an object, with each field their correct type!
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 

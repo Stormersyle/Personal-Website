@@ -38,7 +38,7 @@
 }
 .tiptap blockquote {
   padding-left: 1rem;
-  border-left: 2px solid rgba(13, 13, 13, 0.1);
+  border-left: 2px solid rgba(160, 158, 158, 0.823);
 }
 .tiptap hr {
   border: none;
@@ -56,4 +56,16 @@
 .editor-menu button {
   margin: 0.5vh 0.1vw;
   padding: 0.5vh 0.5vw;
+}
+
+.tiptap h1 {
+  font-size: 30px !important;
+}
+
+.tiptap h2 {
+  font-size: 24px !important;
+}
+
+.tiptap h3 {
+  font-size: 20px !important;
 }

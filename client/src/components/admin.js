@@ -1,9 +1,10 @@
 import React from "react";
 import { useState, useRef } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { post } from "../utilities.js";
+import { get, post } from "../utilities.js";
 import { Editor } from "./tiptap.js";
 
+// Post
 const PostBlog = () => {
   const [content, setContent] = useState();
   const titleRef = useRef(null);
@@ -28,7 +29,10 @@ const PostBlog = () => {
         <input type="text" id="post_title" ref={titleRef} />
       </div>
       <br />
-      <Editor setContent={setContent} />
+      <Editor
+        setContent={setContent}
+        defaultContent={`{"type":"doc","content":[{"type":"paragraph","content":[{"type":"text","text":"Click here to write something!"}]}]}`}
+      />
       <br />
       <div className="proj-link-container">
         <label htmlFor="post_password">Password: </label>
@@ -141,6 +145,7 @@ const PostProject = () => {
   );
 };
 
+//Delete
 const DeleteBlog = () => {
   const titleRef = useRef(null);
   const passwordRef = useRef(null);
@@ -213,6 +218,180 @@ const DeleteProject = () => {
   );
 };
 
+//Edit
+const EditBlog = () => {
+  const [content, setContent] = useState();
+  const [defaultContent, setDefaultContent] = useState(
+    `{"type":"doc","content":[{"type":"paragraph","content":[{"type":"text","text":"Click here to write something!"}]}]}`
+  );
+  const [titleDisabled, setTitleDisabled] = useState(false);
+  const titleRef = useRef(null);
+  const passwordRef = useRef(null);
+  const navigate = useNavigate();
+
+  const confirmTitle = () => {
+    if (!titleRef) return;
+    get("/api/blog_content", { title: titleRef.current.value })
+      .then(({ body }) => {
+        setDefaultContent(body);
+        setTitleDisabled(true);
+      })
+      .catch(() => alert("bad title!"));
+  };
+
+  const submit = () => {
+    if (!(titleRef && passwordRef)) return;
+    console.log("content", JSON.stringify(content));
+    post("/api/edit_blog", {
+      title: titleRef.current.value,
+      body: JSON.stringify(content),
+      password: passwordRef.current.value,
+    }).then(() => navigate("/admin"));
+  };
+
+  console.log(defaultContent);
+
+  return (
+    <div className="page-container newblog">
+      <p className="u-xl">Edit Blog Post</p>
+      <br />
+      <div>
+        <label htmlFor="post_title">Title: </label>
+        <input type="text" id="post_title" ref={titleRef} disabled={titleDisabled} />
+      </div>
+      <br />
+      <Editor setContent={setContent} defaultContent={defaultContent} />
+      <br />
+      <div className="proj-link-container">
+        <label htmlFor="post_password">Password: </label>
+        <input type="password" id="post_password" ref={passwordRef} />
+      </div>
+      <div className="u-flex u-justify-center">
+        <button onClick={() => navigate("/admin")}>Back</button>
+        <button onClick={confirmTitle}>Confirm Title</button>
+        <button onClick={submit}>Submit</button>
+      </div>
+    </div>
+  );
+};
+
+const EditProject = () => {
+  const [defaults, setDefaults] = useState({
+    description: "",
+    website: "",
+    github: "",
+    starred: false,
+    priority: 0,
+  });
+  const [nameDisabled, setNameDisabled] = useState(false);
+  const nameRef = useRef(null);
+  const descriptionRef = useRef(null);
+  const websiteRef = useRef(null);
+  const githubRef = useRef(null);
+  const starredRef = useRef(null);
+  const priorityRef = useRef(null);
+  const passwordRef = useRef(null);
+  const navigate = useNavigate();
+
+  const confirmName = () => {
+    if (!titleRef) return;
+    get("/api/proj_content", { name: nameRef.current.value })
+      .then((info) => {
+        setDefaults(info);
+        setNameDisabled(true);
+      })
+      .catch(() => alert("bad name!"));
+  };
+
+  const submit = () => {
+    if (
+      nameRef &&
+      descriptionRef &&
+      websiteRef &&
+      githubRef &&
+      starredRef &&
+      priorityRef &&
+      passwordRef
+    ) {
+      const project_params = {
+        name: nameRef.current.value,
+        description: descriptionRef.current.value,
+        website_link: websiteRef.current.value,
+        github_link: githubRef.current.value,
+        starred: starredRef.current.checked,
+        priority: Number(priorityRef.current.value),
+        password: passwordRef.current.value,
+      };
+      post("/api/edit_project", project_params).then(() => navigate("/admin"));
+    }
+  };
+
+  return (
+    <div className="page-container newproject">
+      <p className="u-xl">Edit Project</p>
+      <br />
+      <p>Type in the name of the project, then click confirm.</p>
+      <br />
+      <div>
+        <label htmlFor="name">Name:</label>
+        <input type="text" id="name" ref={nameRef} disabled={nameDisabled} />
+      </div>
+      <br />
+      <div className="u-flex u-align-center">
+        <label htmlFor="description">Description:</label>
+        <textarea id="description" ref={descriptionRef} defaultValue={defaults.description} />
+      </div>
+      <br />
+      <div className="u-flex u-justify-start">
+        <div className="u-width-fit">
+          <label htmlFor="website">Website:</label>
+          <input type="text" id="website" ref={websiteRef} defaultValue={defaults.website} />
+        </div>
+        <div className="u-width-fit">
+          <label htmlFor="github">Github:</label>
+          <input type="text" id="github" ref={githubRef} defaultValue={defaults.github} />
+        </div>
+      </div>
+      <div className="u-flex u-justify-start u-align-center">
+        <div className="u-width-fit">
+          <div className="u-flex u-justify-start u-align-center">
+            <label htmlFor="starred">Starred:</label>
+            <input
+              type="checkbox"
+              id="starred"
+              ref={starredRef}
+              className="u-block"
+              defaultChecked={defaults.starred}
+            />
+          </div>
+        </div>
+        <div className="u-width-fit">
+          <div className="u-flex u-justify-start u-align-center">
+            <label htmlFor="priority">Priority:</label>
+            <input
+              type="number"
+              id="priority"
+              ref={priorityRef}
+              defaultPriority={defaults.priority}
+            />
+          </div>
+        </div>
+        <div className="u-width-fit">
+          <div>
+            <label htmlFor="proj_password">Password:</label>
+            <input type="password" id="proj_password" ref={passwordRef} />
+          </div>
+        </div>
+      </div>
+      <div className="u-flex u-justify-center">
+        <button onClick={() => navigate("/admin")}>Back</button>
+        <button onClick={confirmName}>Confirm Name</button>
+        <button onClick={submit}>Submit</button>
+      </div>
+    </div>
+  );
+};
+
 const Admin = () => {
   const navigate = useNavigate();
   return (
@@ -221,9 +400,9 @@ const Admin = () => {
         <p className="u-xl">Admin Dashboard</p>
         <br />
         <p>
-          Welcome to the admin dashboard! Here is where I post/delete blogs and projects. Even
-          though you can submit a post/deletion, the server will reject it unless you enter the
-          correct password, which only I have access to.
+          Welcome to the admin dashboard! Here is where I post/edit/delete blogs and projects. Even
+          though you can submit a post/edit/deletion, the server will reject it unless you enter the
+          correct password, which is very long and only I have access to.
         </p>
       </div>
       <br />
@@ -234,7 +413,13 @@ const Admin = () => {
           <button onClick={() => navigate("/newproject")}>New Project</button>
         </div>
       </div>
-      <br />
+      <div>
+        <p className="u-l">Edit Blog/Project</p>
+        <div className="button-container">
+          <button onClick={() => navigate("/editblog")}>Edit Blog Post</button>
+          <button onClick={() => navigate("/editproject")}>Edit Project</button>
+        </div>
+      </div>
       <div>
         <p className="u-l">Delete Blog/Project</p>
         <div className="button-container">
@@ -246,4 +431,4 @@ const Admin = () => {
   );
 };
 
-export { PostBlog, PostProject, DeleteBlog, DeleteProject, Admin };
+export { PostBlog, PostProject, DeleteBlog, DeleteProject, EditBlog, EditProject, Admin };

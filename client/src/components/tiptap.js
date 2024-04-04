@@ -3,6 +3,7 @@ import "../stylesheets/tiptap.css";
 import { Color } from "@tiptap/extension-color";
 import ListItem from "@tiptap/extension-list-item";
 import TextStyle from "@tiptap/extension-text-style";
+import Heading from "@tiptap/extension-heading";
 import { useEditor, EditorContent } from "@tiptap/react";
 import { generateHTML } from "@tiptap/html";
 import StarterKit from "@tiptap/starter-kit";
@@ -111,6 +112,7 @@ const MenuBar = ({ editor }) => {
 const extensions = [
   Color.configure({ types: [TextStyle.name, ListItem.name] }),
   TextStyle.configure({ types: [ListItem.name] }),
+  Heading,
   StarterKit.configure({
     bulletList: {
       keepMarks: true,
@@ -123,37 +125,41 @@ const extensions = [
   }),
 ];
 
-const defaultContent = `<p>Click me to write something!</p>`;
-
 //editor without menu
-const PreEditor = ({ setEditor, setContent }) => {
-  console.log("setContent", setContent);
+const PreEditor = ({ setEditor, setContent, defaultContent }) => {
+  //defaultContent is a JSON string
   const editor = useEditor({
     extensions: extensions,
-    content: defaultContent,
+    content: JSON.parse(defaultContent),
     editable: true,
     onUpdate: ({ editor }) => {
       setContent(editor.getJSON());
-      // editor.getJSON() is a JSON OBJECT, note a JSON STRING
+      // editor.getJSON() is a JSON OBJECT, not a JSON STRING
     },
   });
+  useEffect(() => {
+    if (editor) editor.commands.setContent(JSON.parse(defaultContent));
+  }, [defaultContent]);
   useEffect(() => setEditor(editor), [editor]);
+  console.log("PreEditor", editor);
   return <EditorContent editor={editor} />;
 };
 
 //editor with menu
-const Editor = ({ setContent }) => {
+const Editor = ({ setContent, defaultContent }) => {
+  //default content is a JSON string
   const [editor, setEditor] = useState(null);
-  //getContent = function that gets editor's JSON
 
   useEffect(() => {
     // console.log("editor:", editor);
     if (editor) setContent(editor.getJSON());
   }, [editor]);
+  console.log("Editor", defaultContent);
+
   return (
     <div>
       <MenuBar editor={editor} />
-      <PreEditor setEditor={setEditor} setContent={setContent} />
+      <PreEditor setEditor={setEditor} setContent={setContent} defaultContent={defaultContent} />
     </div>
   );
 };
@@ -163,7 +169,7 @@ const Display = ({ content }) => {
   //reason for massive bug: generateHTML needs BOTH the JSON objet and an extensions array! I forgot about the latter
   const editor = useEditor({
     extensions: extensions,
-    content: generateHTML(JSON.parse(content), extensions),
+    content: JSON.parse(content),
     editable: false,
   });
   return <EditorContent editor={editor} />;

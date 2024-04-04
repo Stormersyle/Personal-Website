@@ -28,8 +28,17 @@ router.get("/blog", (req, res) => {
     });
 });
 
+// get post content + title by timestamp
 router.get("/blogpost", (req, res) => {
   BlogPost.findOne({ timestamp: req.query.timestamp }).then((post) => res.send(post));
+});
+
+// get post content by title
+router.get("/blog_content", (req, res) => {
+  BlogPost.findOne({ title: req.query.title }).then((post) => {
+    res.send(post);
+  });
+  // Note: we cannot do .then(res.find); need to do (doc)=>res.send(doc), so that res.send inherits context
 });
 
 router.get("/projects", (req, res) => {
@@ -40,11 +49,29 @@ router.get("/projects", (req, res) => {
     });
 });
 
+//get project content by name
+router.get("/proj_content", (req, res) => {
+  Project.findOne({ name: req.query.name }).then(res.send);
+});
+
+//posting
+
 router.post("/blog", (req, res) => {
   const newPost = new BlogPost({ title: req.body.title, body: req.body.body }); //blog post should be just a string; formatting should be done using symbols
   newPost.save().then(res.send({ title: req.body.title, body: req.body.body }));
   const newBackUp = new BackupBlog({ title: req.body.title, body: req.body.body });
   newBackUp.save();
+});
+
+router.post("/edit_blog", (req, res) => {
+  BlogPost.updateOne({ title: req.body.title }, { $set: { body: req.body.body } }).then(() =>
+    res.send({})
+  );
+});
+
+router.post("/delete_blog", (req, res) => {
+  //deletes everything that matches title... really we should only have one post per title
+  BlogPost.deleteMany({ title: req.body.title }).then(() => res.send({}));
 });
 
 router.post("/project", (req, res) => {
@@ -62,9 +89,20 @@ router.post("/project", (req, res) => {
   newBackUp.save();
 });
 
-router.post("/delete_blog", (req, res) => {
-  //deletes everything that matches title... really we should only have one post per title
-  BlogPost.deleteMany({ title: req.body.title }).then(() => res.send({}));
+router.post("/edit_project", (req, res) => {
+  const { name, description, website_link, github_link, starred, priority } = req.body;
+  Project.updateOne(
+    { name: name },
+    {
+      $set: {
+        description: description,
+        website_link: website_link,
+        github_link: github_link,
+        starred: starred,
+        priority: priority ? priority : 0,
+      },
+    }
+  ).then(() => res.send({}));
 });
 
 router.post("/delete_project", (req, res) => {

@@ -51,6 +51,7 @@ hr {
   color: white;
 }
 
+/* note: to actually change button font, we should wrap the text in <p> */
 button {
   margin: 3vh 1vw 3vh 0;
   width: fit-content;
