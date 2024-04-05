@@ -2,7 +2,7 @@ import React from "react";
 
 const Academics = () => {
   return (
-    <div className="page-container academics">
+    <div className="page-container">
       <p className="u-xl">Academics</p>
       <br />
       <div>
@@ -18,17 +18,17 @@ const Academics = () => {
           <li>21W.031: Science Writing and New Media</li>
         </ul>
         <div className="linebreak-2"></div>
-        <p className="u-mm">Fall 2023:</p>
+        <p className="u-mmm">Fall 2023:</p>
         <div className="linebreak-1"></div>
         <ul>
           <li>18.701: Abstract Algebra I (A)</li>
           <li>18.600: Probability & Random Variables (A+)</li>
           <li>6.1010: Fundamentals of Programming (A)</li>
-          <li>6.100B: Intro to Computational Thinking & Data Science (A)</li>
+          <li>6.100B: Intro to Computational Thinking and Data Science </li>
           <li>7.012: Introduction to Biology</li>
         </ul>
         <div className="linebreak-2"></div>
-        <p className="u-mm">Prior Credit:</p>
+        <p className="u-mmm">Prior Credit:</p>
         <div className="linebreak-0pt5"></div>
         <ul>
           <li>18.01: Single-Variable Calculus</li>
@@ -37,10 +37,10 @@ const Academics = () => {
           <li>8.01: Physics I</li>
           <li>6.100A: Intro to Python</li>
         </ul>
+        <br />
       </div>
-      <br />
-      <div className="notes">
-        <p className="u-l u-block notes-heading">Notes</p>
+      <div>
+        <p className="u-l u-block">Notes</p>
         <div className="linebreak-0pt5"></div>
         <p className="u-mm">
           Here is a collection of some notes/handouts I have written on various topics. I believe
@@ -90,14 +90,14 @@ const Academics = () => {
             </p>
           </li>
         </ul>
+        <br />
       </div>
-      <br />
-      <div className="research">
+      <div>
         <p className="u-l">Research</p>
         <div className="linebreak-0pt5"></div>
         <p>Coming soon</p>
+        <br />
       </div>
-      <br />
     </div>
   );
 };

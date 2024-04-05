@@ -1,6 +1,3 @@
-/* Utility classes (classes for styling one thing)
- Copied from Catbook React*/
-
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,600");
 
 :root {
@@ -15,47 +12,43 @@
 /* with default 18px: */
 .u-xs {
   /* 4px */
-  font-size: 0.22em !important;
+  font-size: 0.22rem !important;
 }
 
 .u-s {
-  font-size: 0.44em !important;
+  font-size: 0.44rem !important;
 }
 
 .u-sm {
-  font-size: 0.78em !important;
+  font-size: 0.78rem !important;
 }
 
 .u-m {
-  font-size: 0.89em !important;
+  font-size: 0.89rem !important;
 }
 
 .u-mm {
-  font-size: 1em !important;
+  font-size: 1rem !important;
 }
 
 .u-mmm {
-  font-size: 1.22em !important;
+  font-size: 1.17rem !important;
 }
 
 .u-l {
-  font-size: 1.33em !important;
+  font-size: 1.33rem !important;
 }
 
 .u-ll {
-  font-size: 1.5em !important;
+  font-size: 1.5rem !important;
 }
 
 .u-xl {
-  font-size: 1.67em !important;
+  font-size: 1.67rem !important;
 }
 
 .u-huge {
-  font-size: 2.78em !important;
-}
-
-form {
-  flex-grow: 1;
+  font-size: 2.78rem !important;
 }
 
 /* utility classes; override everything else */

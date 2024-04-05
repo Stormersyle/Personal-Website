@@ -10,7 +10,9 @@
   /* more specific than original * */
   * {
     font-size: 14px;
+    -webkit-text-size-adjust: 100%;
   }
+  /* this is so stupid, mobile browsers automatically scale up your text if they don't think it's big enough, which is why the academics page kept having typography issues. put in this webkit adjust command to fit it */
 }
 
 /* this contains both page and navbar; makes sure page is centered + setup right */
@@ -19,6 +21,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  width: 100%;
 }
 
 /* contains just the page (not the navbar) */
@@ -90,6 +93,12 @@ button:hover {
   justify-content: center;
   background-color: #eeeeee;
   color: black;
+}
+
+@media only screen and (max-width: 768px) and (orientation: landscape) {
+  .footer {
+    height: 15vh;
+  }
 }
 
 /* admin */
