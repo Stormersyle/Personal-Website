@@ -2,13 +2,13 @@ import React from "react";
 
 const Academics = () => {
   return (
-    <div className="page-container">
+    <div className="page-container academics">
       <p className="u-xl">Academics</p>
       <br />
-      <div className="coursework">
+      <div>
         <p className="u-l">Coursework</p>
         <div className="linebreak-1pt5"></div>
-        <p className="u-mm">Spring 2023:</p>
+        <p className="u-mmm">Spring 2023:</p>
         <div className="linebreak-1"></div>
         <ul>
           <li>18.650: Fundamentals of Statistics</li>
@@ -42,7 +42,7 @@ const Academics = () => {
       <div className="notes">
         <p className="u-l u-block notes-heading">Notes</p>
         <div className="linebreak-0pt5"></div>
-        <p>
+        <p className="u-mm">
           Here is a collection of some notes/handouts I have written on various topics. I believe
           that for most areas, there are existing resources that present the material relatively
           well, so I try not to reinvent the wheel. However, for some classes/topics I found that

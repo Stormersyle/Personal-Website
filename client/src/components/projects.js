@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { get } from "../utilities.js";
 
 import Waiting from "./waiting.js";
+import "../stylesheets/projects.css";
 
 //project:
 //  name: String,

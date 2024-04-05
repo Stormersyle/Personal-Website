@@ -2,9 +2,50 @@ import React from "react";
 import "../stylesheets/navbar.css";
 import { Link } from "react-router-dom";
 
+const HamburgerMenu = () => {
+  return (
+    <div className="hamburger-container u-width-fill">
+      <div className="hamburger-menu">
+        <input id="menu__toggle" type="checkbox" />
+        <label className="menu__btn" for="menu__toggle">
+          <span></span>
+        </label>
+
+        <ul className="menu__box">
+          <li>
+            <a className="menu__item" href="/">
+              Home
+            </a>
+          </li>
+          <li>
+            <a className="menu__item" href="/academics">
+              Academics
+            </a>
+          </li>
+          <li>
+            <a className="menu__item" href="/projects">
+              Projects
+            </a>
+          </li>
+          <li>
+            <a className="menu__item" href="/blog">
+              Blog
+            </a>
+          </li>
+          <li>
+            <a className="menu__item" href="/contact">
+              Contact
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  );
+};
+
 const Navbar = () => {
   return (
-    <div className="Navbar">
+    <div className="Navbar u-width-fill">
       <div className="navlink-container name-container">
         <Link to="/" className="nav-link u-mmm">
           Andrew Yuan
@@ -41,4 +82,13 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+const Nav = () => {
+  return (
+    <div className="u-width-fill u-height-fit">
+      <Navbar />
+      <HamburgerMenu />
+    </div>
+  );
+};
+
+export default Nav;

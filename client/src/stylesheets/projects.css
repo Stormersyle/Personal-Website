@@ -1,0 +1,67 @@
+/* projects */
+.project {
+  border: 2px solid white;
+  border-radius: 20px;
+  margin: 3vh 0;
+  padding: 2vh 1.5vw 3vh 1.5vw;
+}
+
+.small-github-icon {
+  height: 4.6vh;
+  width: auto;
+  margin: 0 0 0 1vw;
+}
+
+.small-github-icon:hover {
+  opacity: 70%;
+}
+
+.star-icon {
+  height: 4.7vh;
+  width: auto;
+  margin: 0 0.5vw 0 1vw;
+}
+
+.proj-image {
+  margin: 0 0 0 2vw;
+  width: 30vw;
+  height: 30vh;
+  object-fit: contain;
+}
+/* note: for an img, we need to set a width and height for the object-fit to work. The width and height properties specify the content box, and object-fit is with respect to the content box.
+  In this case: contain means it scales (either up or down) to exactly fit the entire content box, while maintaing its aspect ratio.*/
+
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+  /* more specific than original * */
+  .project {
+    padding: 2vh 5vw 3vh 5vw;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .proj-image {
+    margin: 2vh 0 0 0;
+    width: 70vw;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .small-github-icon {
+    margin: 0 0 0 3vw;
+  }
+
+  .star-icon {
+    margin: 0 0.5vw 0 3vw;
+  }
+}
+
+@media only screen and (max-width: 768px) and (orientation: landscape) {
+  .small-github-icon {
+    height: 8vh;
+    margin: 0 0 0 2vw;
+  }
+  .star-icon {
+    height: 8.2vh;
+    margin: 0 0 0 2vw;
+  }
+}

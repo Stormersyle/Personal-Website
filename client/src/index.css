@@ -6,6 +6,13 @@
   font-size: 18px;
 }
 
+@media only screen and (max-width: 768px) {
+  /* more specific than original * */
+  * {
+    font-size: 14px;
+  }
+}
+
 /* this contains both page and navbar; makes sure page is centered + setup right */
 #root {
   display: flex;
@@ -28,6 +35,12 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+}
+
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+  .page-container {
+    min-height: 72vh;
+  }
 }
 
 .page-container div {
@@ -77,7 +90,6 @@ button:hover {
   justify-content: center;
   background-color: #eeeeee;
   color: black;
-  font-size: 18px;
 }
 
 /* admin */
@@ -116,36 +128,3 @@ button:hover {
 .end-blog {
   width: 100%;
 }
-
-/* projects */
-.project {
-  border: 2px solid white;
-  border-radius: 20px;
-  margin: 3vh 0;
-  padding: 2vh 1.5vw 3vh 1.5vw;
-}
-
-.small-github-icon {
-  height: 4.6vh;
-  width: auto;
-  margin: 0 0 0 1vw;
-}
-
-.small-github-icon:hover {
-  opacity: 70%;
-}
-
-.star-icon {
-  height: 4.7vh;
-  width: auto;
-  margin: 0 0.5vw 0 1vw;
-}
-
-.proj-image {
-  margin: 0 0 0 2vw;
-  width: 30vw;
-  height: 30vh;
-  object-fit: contain;
-}
-/* note: for an img, we need to set a width and height for the object-fit to work. The width and height properties specify the content box, and object-fit is with respect to the content box.
-In this case: contain means it scales (either up or down) to exactly fit the entire content box, while maintaing its aspect ratio.*/

@@ -7,7 +7,9 @@ const Home = () => {
       <div id="home-part1">
         <div className="intro-container">
           <div className="bigname-container">
-            <p className="u-block u-huge typewriter">Hi, I'm Andrew.</p>
+            <p id="bigname" className="u-block typewriter">
+              Hi, I'm Andrew.
+            </p>
           </div>
           <br />
 
