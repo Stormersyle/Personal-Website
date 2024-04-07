@@ -24,7 +24,7 @@ const Academics = () => {
           <li>18.701: Abstract Algebra I (A)</li>
           <li>18.600: Probability & Random Variables (A+)</li>
           <li>6.1010: Fundamentals of Programming (A)</li>
-          <li>6.100B: Intro to Computational Thinking and Data Science </li>
+          <li>6.100B: Intro to Computational Thinking and Data Science (A)</li>
           <li>7.012: Introduction to Biology</li>
         </ul>
         <div className="linebreak-2"></div>
@@ -74,10 +74,7 @@ const Academics = () => {
           </li>
           <div className="linebreak-2"></div>
           <li>
-            <a
-              href="https://docs.google.com/document/d/13GByAOuUq-HfVmeXN9pZMD-Y38vAUrIMP_p6QAQm_zM/edit?usp=sharing"
-              target="_blank"
-            >
+            <a href="/assets/web_lab_notes.docx" target="_blank">
               Web Lab Notes
             </a>
             <div className="linebreak-1"></div>

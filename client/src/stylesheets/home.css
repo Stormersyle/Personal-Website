@@ -52,6 +52,21 @@
   }
 }
 
+@media only screen and (max-width: 900px) and (orientation: portrait) {
+  #home-part2 {
+    min-height: 450px;
+  }
+}
+
+@media only screen and (max-width: 900px) and (orientation: landscape) {
+  #home-part1 {
+    min-height: 300px;
+  }
+  #home-part2 {
+    min-height: 300px;
+  }
+}
+
 .headshot {
   display: block;
   height: 40vh;
