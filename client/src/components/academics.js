@@ -8,14 +8,14 @@ const Academics = () => {
       <div>
         <p className="u-l">Coursework</p>
         <div className="linebreak-1pt5"></div>
-        <p className="u-mmm">Spring 2023:</p>
+        <p className="u-mmm">Spring 2024:</p>
         <div className="linebreak-1"></div>
         <ul>
-          <li>18.650: Fundamentals of Statistics</li>
-          <li>18.100B: Real Analysis</li>
-          <li>6.3900: Introduction to Machine Learning</li>
-          <li>14.02: Principles of Macroeconomics</li>
-          <li>21W.031: Science Writing and New Media</li>
+          <li>18.100B: Real Analysis (A+)</li>
+          <li>6.3900: Introduction to Machine Learning (A)</li>
+          <li>14.02: Principles of Macroeconomics (A)</li>
+          <li>21W.031: Science Writing and New Media (A+)</li>
+          <li>18.650: Fundamentals of Statistics (Listener)</li>
         </ul>
         <div className="linebreak-2"></div>
         <p className="u-mmm">Fall 2023:</p>
@@ -57,18 +57,19 @@ const Academics = () => {
             </a>
             <div className="linebreak-1"></div>
             <p>
-              A typical first course in linear algebra focuses on performing computations rather
-              than a deep understanding of concepts, resulting in many students struggling to grasp
-              what's "really going on". Even in proof-based books like Artin's Algebra or Axler's
-              LADR, a lot of intuition is left out. In these notes, I try to present the entirety of
-              the content of a first course in linear algebra from an rigorous yet intuitive
-              perspective. At the end, I also present some connections to group theory.
+              A typical first course in linear algebra focuses on rote computation rather than a
+              deep understanding of concepts, resulting in many students struggling to grasp what's
+              "really going on". Even in proof-based books like Artin's Algebra or Axler's LADR, a
+              lot of intuition is left out. In these notes, I try to present the entirety of the
+              content of a first course in linear algebra from a fully rigorous yet intuitive
+              perspective. At the end, I also present some connections to group theory and
+              applications in statistics/machine learning.
             </p>
             <div className="linebreak-0pt5"></div>
             <p>
               <b>
                 (Note: I'm currently still working on these notes so the link doesn't work right
-                now; I expect to finish within the next few months.)
+                now; I expect to finish within the next several months.)
               </b>
             </p>
           </li>
@@ -82,7 +83,7 @@ const Academics = () => {
               Here are my notes for MIT's Web Lab, which I find much easier to use as a reference
               than Google searching. So far, these notes are focused entirely on Javascript and the
               MERN stack because that's what Web Lab taught; I plan to add some more
-              languages/frameworks/databases (e.g. NextJS, Flask, Django, SQL) once I find the time
+              languages/frameworks/databases (e.g. Next.js, Flask, Django, SQL) once I find the time
               to learn them.
             </p>
           </li>
