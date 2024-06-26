@@ -33,7 +33,7 @@ const Home = () => {
           I’m a first-year at MIT double-majoring in mathematics (course 18) and computer science
           (course 6-3). Within computer science, I’m especially interested in AI/machine learning,
           and in general I'm passionate about building technology to make an impact on the world. I
-          also love solving math problems, especially combinatorics. Career-wise, I'm interested
+          also love solving math problems, especially combinatorics. Career-wise, I'm interested in
           startups, quant finance, and software engineering. My resume is available{" "}
           <a href="/assets/resume.pdf" target="_blank">
             here
