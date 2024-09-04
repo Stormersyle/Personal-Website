@@ -8,7 +8,18 @@ const Academics = () => {
       <div>
         <p className="u-l">Coursework</p>
         <div className="linebreak-1pt5"></div>
-        <p className="u-mmm">Spring 2024:</p>
+        <p className="u-mmm">Fall 2024-25 (current):</p>
+        <div className="linebreak-1"></div>
+        <ul>
+          <li>6.7900: Machine Learning (Grad)</li>
+          <li>6.7960: Deep Learning (Grad)</li>
+          <li>6.8611: Advanced NLP</li>
+          <li>6.1220: Design & Analysis of Algorithms</li>
+          <li>6.1810: Operating Systems</li>
+          <li>14.12: Economic Applications of Game Theory</li>
+        </ul>
+        <div className="linebreak-2"></div>
+        <p className="u-mmm">Spring 2023-24:</p>
         <div className="linebreak-1"></div>
         <ul>
           <li>18.100B: Real Analysis (A+)</li>
@@ -18,7 +29,7 @@ const Academics = () => {
           <li>18.650: Fundamentals of Statistics (Listener)</li>
         </ul>
         <div className="linebreak-2"></div>
-        <p className="u-mmm">Fall 2023:</p>
+        <p className="u-mmm">Fall 2023-24:</p>
         <div className="linebreak-1"></div>
         <ul>
           <li>18.701: Abstract Algebra I (A)</li>
@@ -42,52 +53,7 @@ const Academics = () => {
       <div>
         <p className="u-l u-block">Notes</p>
         <div className="linebreak-0pt5"></div>
-        <p className="u-mm">
-          Here is a collection of some notes/handouts I have written on various topics. I believe
-          that for most areas, there are existing resources that present the material relatively
-          well, so I try not to reinvent the wheel. However, for some classes/topics I found that
-          existing treatments are inadequate/ineffective (at least for me), so for those I've
-          written up some notes on that hopefully others may find useful.
-        </p>
-        <div className="linebreak-2"></div>
-        <ul>
-          <li>
-            <a href="/" target="_blank">
-              Linear Algebra: An Intuition-Focused Development
-            </a>
-            <div className="linebreak-1"></div>
-            <p>
-              A typical first course in linear algebra focuses on rote computation rather than a
-              deep understanding of concepts, resulting in many students struggling to grasp what's
-              "really going on". Even in proof-based books like Artin's Algebra or Axler's LADR, a
-              lot of intuition is left out. In these notes, I try to present the entirety of the
-              content of a first course in linear algebra from a fully rigorous yet intuitive
-              perspective. At the end, I also present some connections to group theory and
-              applications in statistics/machine learning.
-            </p>
-            <div className="linebreak-0pt5"></div>
-            <p>
-              <b>
-                (Note: I'm currently still working on these notes so the link doesn't work right
-                now; I expect to finish within the next several months.)
-              </b>
-            </p>
-          </li>
-          <div className="linebreak-2"></div>
-          <li>
-            <a href="/assets/web_lab_notes.docx" target="_blank">
-              Web Lab Notes
-            </a>
-            <div className="linebreak-1"></div>
-            <p>
-              Here are my notes for MIT's Web Lab, which I find much easier to use as a reference
-              than Google searching. So far, these notes are focused entirely on Javascript and the
-              MERN stack because that's what Web Lab taught; I plan to add some more
-              languages/frameworks/databases (e.g. Next.js, Flask, Django, SQL) once I find the time
-              to learn them.
-            </p>
-          </li>
-        </ul>
+        <p className="u-mm">Coming soon</p>
         <br />
       </div>
       <div>
