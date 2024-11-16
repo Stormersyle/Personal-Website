@@ -17,11 +17,11 @@ const HamburgerMenu = () => {
               Home
             </a>
           </li>
-          <li>
+          {/* <li>
             <a className="menu__item" href="/academics">
               Academics
             </a>
-          </li>
+          </li> */}
           <li>
             <a className="menu__item" href="/projects">
               Projects
@@ -55,9 +55,9 @@ const Navbar = () => {
         <Link to="/" className="nav-link">
           Home
         </Link>
-        <Link to="/academics" className="nav-link">
+        {/* <Link to="/academics" className="nav-link">
           Academics
-        </Link>
+        </Link> */}
         <Link to="/projects" className="nav-link">
           Projects
         </Link>
