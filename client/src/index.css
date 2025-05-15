@@ -2,7 +2,7 @@
   scroll-behavior: smooth;
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 18px;
 }
 
@@ -30,7 +30,7 @@
 .page-container {
   padding: 5vh 15%;
   width: 70%;
-  min-height: 70vh;
+  min-height: 73vh;
   /* min-height: 70vh makes the page-container automatically extend to the bottom */
   background-color: #182038;
   color: white;
@@ -69,13 +69,20 @@ hr {
 
 /* note: to actually change button font, we should wrap the text in <p> */
 button {
-  margin: 3vh 1vw 3vh 0;
+  margin: 3vh 1vw 3vh 1vw;
   width: fit-content;
+  height: fit-content;
   padding: 1vh 1vw;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;
   background-color: rgb(22, 91, 117);
   color: white;
+  border-radius: 30px;
+}
+
+button > p {
+  margin: 1vw;
+  white-space: nowrap;
 }
 
 button:hover {
@@ -86,7 +93,7 @@ button:hover {
 .footer {
   width: 70%;
   padding: 0 15%;
-  height: 10vh;
+  height: 7vh;
   display: flex;
   flex-direction: column;
   align-items: center;
