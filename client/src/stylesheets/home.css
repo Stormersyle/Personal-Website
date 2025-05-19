@@ -22,20 +22,23 @@
   width: fit-content;
 }
 
-#text-pic-container {
-  flex: 1;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-}
-
 #bigname {
   font-size: 3.5em;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 900px) and (orientation: portrait) {
+  #home-part1 {
+    padding: 2vh 0 0 0;
+    height: 98vh;
+  }
   #bigname {
     font-size: 2.6em !important;
+  }
+}
+
+@media only screen and (max-width: 900px) and (orientation: landscape) {
+  #bigname {
+    font-size: 2em !important;
   }
 }
 
@@ -50,15 +53,6 @@
   align-items: flex-start;
   background-color: white;
   color: black;
-}
-
-@media only screen and (max-width: 900px) and (orientation: landscape) {
-  #home-part1 {
-    height: 100vh;
-  }
-  #home-part2 {
-    height: 100vh;
-  }
 }
 
 @media only screen and (max-width: 900px) and (orientation: portrait) {
@@ -76,8 +70,17 @@
   }
 }
 
+#text-pic-container {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
 .text-intro-container {
   width: 50%;
+  display: flex;
+  flex-direction: column;
 }
 
 .filler-img-container {
@@ -96,18 +99,6 @@
   object-fit: contain;
 }
 
-@media only screen and (max-width: 768px) and (orientation: portrait) {
-  .text-intro-container {
-    width: 100%;
-  }
-  .filler-img {
-    display: none !important;
-  }
-  #home-part1 {
-    height: 80vh;
-  }
-}
-
 .downarrow {
   height: 9vh;
   width: auto;
@@ -121,9 +112,35 @@
   justify-content: center;
 }
 
-@media only screen and (max-width: 850px) {
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+  .intro-container {
+    height: 89%;
+    width: 80%;
+  }
+  #text-pic-container {
+    flex-direction: column;
+  }
+  .text-intro-container {
+    width: 100%;
+    height: fit-content;
+  }
+  .filler-img-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .filler-img {
+    width: 70%;
+    height: 70%;
+  }
   .downarrow {
-    display: none;
+    height: 9svh;
+    width: auto;
+  }
+  .downarrow-container {
+    height: 15vh;
+    padding: 0 0 2svh 0;
   }
 }
 

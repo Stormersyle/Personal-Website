@@ -19,7 +19,7 @@ const Home = () => {
           <br />
 
           <div id="text-pic-container">
-            <div className="text-intro-container u-flex-col">
+            <div className="text-intro-container">
               <p className="u-mmm">
                 I'm a student at MIT studying math and computer science. Welcome to my personal
                 website!
@@ -39,6 +39,7 @@ const Home = () => {
             </div>
           </div>
         </div>
+
         <div className="downarrow-container">
           <a href="#home-part2">
             <img src="/assets/downarrow.png" className="downarrow bounce" />
